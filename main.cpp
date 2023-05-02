@@ -41,8 +41,9 @@ int main() {
     u.login();*/
     Database db;
     db.load();
-/*    AdminSystem a;
-    a.adminSystem();*/
+    AdminSystem a;
+    a.adminSystem();
+    db.save();
     cout << "±£´æ³É¹¦£¡" << endl;
     return 0;
 
