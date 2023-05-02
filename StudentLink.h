@@ -13,6 +13,12 @@ class StudentLink: public Link<Student>{
 
 public:
     StudentLink(){load("student.txt");}
+    void add(string id, string name, string sex, string prof, string grade){
+        Student s(id,name,sex,prof,grade);
+        link.push_back(s);
+    }
+    void update(string id, string name, string sex, string prof, string grade);
+
 };
 
 

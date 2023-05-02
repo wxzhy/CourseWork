@@ -3,3 +3,15 @@
 //
 
 #include "StudentLink.h"
+
+void StudentLink::update(string id, string name, string sex, string prof, string grade) {
+    for(auto it=link.begin(); it!=link.end();++it){
+        if(it->getId()==id){
+            it->setName(name);
+            it->setSex(sex);
+            it->setProf(prof);
+            it->setGrade(grade);
+        }
+    }
+
+}

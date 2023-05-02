@@ -12,6 +12,8 @@
 class TeacherLink: public Link<Teacher>  {
 public:
     TeacherLink(){load("teacher.txt");}
+    void modify();
+
 };
 
 

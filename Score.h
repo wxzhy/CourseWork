@@ -13,6 +13,8 @@ class Score {
     string studentId, courseId;//学生id,课程id
     int value;//分数
 public:
+    Score(){}//构造函数
+    Score(string studentId, string courseId,int value) : studentId(studentId), courseId(courseId), value(value) {}
     string getSid() { return studentId; }//获得学生id
     void setSid(string &s) { studentId = s; }//设置学生id
     string getCid() { return courseId; }//获得课程id

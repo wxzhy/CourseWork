@@ -12,10 +12,12 @@ using namespace std;
 class Course {
     string id, teacherId, name, desc;//教师id,名称，简介
 public:
+    Course(){}//构造函数
+    Course(string id, string teacherId, string name, string desc):id(id), teacherId(teacherId), name(name), desc(desc){}
     string getId() { return id; }//获得编号
     void setId(string &id) { this->id = id; }//设置编号
-    string getTid() { return teacherId; }//获得教师编号
-    void setTid(string &tid) { this->teacherId = tid; }//设置教师编号
+    string getTeacherId() { return teacherId; }//获得教师编号
+    void setTeacherId(string &tid) { this->teacherId = tid; }//设置教师编号
     string getName() { return name; }//获得姓名
     void setName(string &name) { this->name = name; }//设置姓名
     string getDesc() { return desc; }//获得简介

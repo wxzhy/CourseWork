@@ -29,37 +29,70 @@ void AdminSystem::adminSystem() {
     cin >> op;
 
 /*    if (op == 1)
-        adminQueryStudentInfo();
-    else if (op == 2)
-        adminAddStudentInfo();
-    else if (op == 3)
-        adminModifyStudentInfo();
-    else if (op == 4)
-        adminDeleteStudentInfo();
-    else if (op == 5)
-        adminQueryTeacherInfo();
-    else if (op == 6)
-        adminAddTeacherInfo();
-    else if (op == 7)
-        adminModifyTeacherInfo();
-    else if (op == 8)
-        adminDeleteTeacherInfo();
-    else if (op == 9)
-        adminQueryCourseInfo();
-    else if (op == 10)
-        adminAddCourseInfo();
-    else if (op == 11)
-        adminModifyCourseInfo();
-    else if (op == 12)
-        adminDeleteCourseInfo();
-    else if (op == 13)
-        adminQueryStudentScoreInfo();
-    else if (op == 14)
-        adminAddStudentScoreInfo();
-    else if (op == 15)
-        adminModifyStudentScoreInfo();
-    else if (op == 16)
-        adminDeleteStudentScoreInfo();
-    else
-        exitSystem();*/
+    adminQueryStudentInfo();
+else if (op == 2)
+    adminAddStudentInfo();
+else if (op == 3)
+    adminModifyStudentInfo();
+else if (op == 4)
+    adminDeleteStudentInfo();
+else if (op == 5)
+    adminQueryTeacherInfo();
+else if (op == 6)
+    adminAddTeacherInfo();
+else if (op == 7)
+    adminModifyTeacherInfo();
+else if (op == 8)
+    adminDeleteTeacherInfo();
+else if (op == 9)
+    adminQueryCourseInfo();
+else if (op == 10)
+    adminAddCourseInfo();
+else if (op == 11)
+    adminModifyCourseInfo();
+else if (op == 12)
+    adminDeleteCourseInfo();
+else if (op == 13)
+    adminQueryStudentScoreInfo();
+else if (op == 14)
+    adminAddStudentScoreInfo();
+else if (op == 15)
+    adminModifyStudentScoreInfo();
+else if (op == 16)
+    adminDeleteStudentScoreInfo();
+else
+    exitSystem();*/
 }
+
+void AdminSystem::displayAllCourseInfo(vector<Course> Courses, vector<Teacher> Teachers) {
+    if (courses.empty()) {
+        cout << "无课程" << endl;
+        return;
+    }
+    cout << left << setw(8) << "课程id" << setw(15) << "课程名称" << setw(10) << "课程老师" << setw(10) << "课程简介"
+         << endl;
+    for (auto s: Courses) {
+        string teacherName = findTeacherNameById(s.getId());
+        cout << left << setw(8) << s.getId() << setw(15) << s.getName() << setw(10) << teacherName << setw(10)
+             << s.getDesc() << endl;
+    }
+    system("pause");
+
+}
+
+string AdminSystem::findTeacherNameById(string teacherId) {
+    for (auto t: teachers) {
+        if (t.getId() == teacherId)
+            return t.getName();
+    }
+    return "";
+}
+
+    int AdminSystem::findTeacherIndexByTeacherId(vector<Teacher> teachers_link, string teacherId) {
+        for (auto it = teachers.begin(); it != teachers.end(); ++it) {
+            if (it->getId() == teacherId)
+                return it - teachers.begin();
+        }
+        return 0;
+    }
+

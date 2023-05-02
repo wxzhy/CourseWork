@@ -1,8 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include "FileUtils.h"
-#include "StudentLink.h"
-#include "TeacherLink.h"
+#include "Display.h"
+#include "AdminSystem.h"
 
 using namespace std;
 unsigned checkPermission(const string& account, const string& password){
@@ -32,10 +31,11 @@ unsigned checkAdmin() {
 }
 
 int main() {
-    StudentLink stu_link;
-    stu_link.save("s2.txt");
-    TeacherLink t_link;
-    t_link.save("t2.txt");
+/*    Display d;
+    d.start();*/
+    AdminSystem a;
+    a.adminQueryCourseInfo();
+
 /*    FileUtils f;
     f.load();
     f.save();*/
