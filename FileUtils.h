@@ -11,7 +11,7 @@
 #include "Course.h"
 
 using namespace std;
-class fileUtils {
+class FileUtils {
 public:
     vector<Student> students;
     vector<Course> courses;
