@@ -11,7 +11,11 @@
 
 class TeacherLink: public Link<Teacher>  {
 public:
-    TeacherLink(){load("teacher.txt");}
+    TeacherLink(){}
+    void add(string id, string name, string sex, string depart, string phone){
+        Teacher t(id,name,sex,depart,phone);
+        link.push_back(t);
+    }
     void modify();
 
 };

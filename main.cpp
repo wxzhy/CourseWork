@@ -2,21 +2,25 @@
 #include <fstream>
 #include "Display.h"
 #include "AdminSystem.h"
+#include "LoginUtils.h"
+#include "Database.h"
 
 using namespace std;
-unsigned checkPermission(const string& account, const string& password){
+
+/*unsigned checkPermission(const string &account, const string &password) {
     ifstream in("account.txt");
-    string acct,passwd;
-    unsigned level=0;
-    if(in.fail())
-        cout<<"Opened account.txt failed"<<endl;
-    while(in>>acct>>passwd>>level){
-        if(acct==account&&passwd==password)
+    string acct, passwd;
+    unsigned level = 0;
+    if (in.fail())
+        cout << "Opened account.txt failed" << endl;
+    while (in >> acct >> passwd >> level) {
+        if (acct == account && passwd == password)
             return level;
     }
     in.close();
     return 0;
 }
+
 unsigned checkAdmin() {
     string account, password;
     cout << "输入账户：" << endl;
@@ -28,13 +32,20 @@ unsigned checkAdmin() {
     if (checkPermission(account, password)) {
         return true;
     } else return false;
-}
+}*/
 
 int main() {
 /*    Display d;
     d.start();*/
-    AdminSystem a;
-    a.adminQueryCourseInfo();
+/*    LoginUtils u;
+    u.login();*/
+    Database db;
+    db.load();
+/*    AdminSystem a;
+    a.adminSystem();*/
+    cout << "保存成功！" << endl;
+    return 0;
+
 
 /*    FileUtils f;
     f.load();

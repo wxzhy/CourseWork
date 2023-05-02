@@ -9,9 +9,9 @@
 #include <vector>
 #include "Course.h"
 #include "Teacher.h"
-#include"main.h"
+#include"Database.h"
 using namespace std;
-class AdminSystem {
+class AdminSystem :public Database{
 public:
     void adminSystem();
 
@@ -92,6 +92,38 @@ public:
 
 
     void adminAddCourseInfo();
+
+    void adminQueryStudentInfo();
+
+    void adminAddStudentInfo();
+
+    void adminModifyStudentInfo();
+
+    void adminModifyCourseInfo();
+
+    int findCourseIndexByCourseId(vector<Course> course, string courseId);
+
+    void adminDeleteStudentInfo();
+
+    void adminQueryTeacherInfo();
+
+    void adminAddTeacherInfo();
+
+    void adminDeleteTeacherInfo();
+
+    void adminDeleteCourseInfo();
+
+    void adminModifyTeacherInfo();
+
+    void adminQueryStudentScoreInfo();
+
+    void adminAddStudentScoreInfo();
+
+    void adminModifyStudentScoreInfo();
+
+    void adminDeleteStudentScoreInfo();
+
+    void exitSystem();
 };
 
 

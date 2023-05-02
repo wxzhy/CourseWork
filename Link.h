@@ -20,8 +20,8 @@ public:
     vector<T> link;//向量
     Link();
 
-    void add(T node);//添加
-    void del(string id);//按ID删除
+    virtual void add(T node);//添加
+    virtual void del(string id);//按ID删除
     vector<T> findByName(string name);//按名称查找
     void reverse();//反转
     T find(string id);//按id查找
@@ -30,8 +30,26 @@ public:
     string getNameById(string id);//根据id查询名称
     vector<string> getIdByName(string name);//根据部分姓名查询id
     void sort();//根据id排序
+    bool ifExist(string id);//id是否重复
+    void erase(T node);
 
 };
+
+template<class T>
+void Link<T>::erase(T node) {
+    link.erase(node);
+
+}
+
+template<class T>
+bool Link<T>::ifExist(string id) {
+    for (auto t: link) {
+        if (t.getId() == id) {
+            return true;
+        }
+    }
+    return false;
+}
 
 template<class T>
 void Link<T>::sort() {
@@ -107,7 +125,7 @@ template<class T>
 vector<T> Link<T>::findByName(string name) {
     vector<T> result;
     for (auto &n: link) {
-        if (n.name.find(name) != -1)
+        if (n.getName().find(name) != -1)
             result.push_back(n);
     }
     return result;
@@ -119,9 +137,9 @@ Link<T>::Link() {
 
 template<class T>
 void Link<T>::del(string id) {
-    for (auto &p: link) {
-        if (p->id == id) {
-            link.erase(p);
+    for (auto it = link.begin(); it != link.end(); it++) {
+        if (it->getId() == id) {
+            link.erase(it);
             break;
         }
     }

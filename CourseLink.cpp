@@ -14,8 +14,11 @@ void CourseLink::add(string id, string teacherId, string name, string desc) {
 void CourseLink::update(string id, string teacherId, string name, string desc) {
     for(auto it=link.begin();it!=link.end();++it){
         if(it->getId()==id) {
+            if(!teacherId.empty())
             it->setTeacherId(teacherId);
+            if(!name.empty())
             it->setName(name);
+            if(!desc.empty())
             it->setDesc(desc);
         }
     }

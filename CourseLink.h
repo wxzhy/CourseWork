@@ -11,7 +11,7 @@
 
 class CourseLink : public Link<Course> {
 public:
-    CourseLink() { load("course.txt"); }
+    CourseLink() {  }
     void add(string id,string teacherId,string name,string desc);
     void update(string id,string teacherId,string name,string desc);
 };
