@@ -29,6 +29,8 @@ void StudentMenu::menu() {
             case 4:
                 searchCourse();
                 break;
+            case 0:
+                return;
             default:
                 cout << "ÊäÈë´íÎó£¡" << endl;
         }

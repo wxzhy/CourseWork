@@ -34,6 +34,10 @@ void CourseManager::menu() {
                 break;
             case 5:
                 findById();
+                break;
+            case 6:
+                search();
+                break;
             case 0:
                 return;
             default:
