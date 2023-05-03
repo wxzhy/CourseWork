@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include "Display.h"
-#include "AdminSystem.h"
 #include "LoginUtils.h"
 #include "Database.h"
 #include "StudentManager.h"
@@ -40,12 +39,12 @@ unsigned checkAdmin() {
 int main() {
 /*    Display d;
     d.start();*/
-/*    LoginUtils u;
-    u.login();*/
+
     Database db;
     db.load();
-    TeacherManager m;
-    m.menu();
+    cout << "加载成功！" << endl;
+    LoginUtils u;
+    u.login();
     db.save();
     cout << "保存成功！" << endl;
     return 0;

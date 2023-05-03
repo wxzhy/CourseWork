@@ -3,8 +3,9 @@
 //
 
 #include "TeacherManager.h"
+
 void TeacherManager::menu() {
-    while(true) {
+    while (true) {
         cout << "1.查看全部教师" << endl;
         cout << "2.添加教师" << endl;
         cout << "3.修改教师" << endl;
@@ -37,36 +38,37 @@ void TeacherManager::menu() {
             case 0:
                 return;
             default:
-                cout<<"输入错误！"<<endl;
+                cout << "输入错误！" << endl;
 
         }
     }
 }
 
 void TeacherManager::displayAll() {
-    println(teachers);
+    print(teachers);
 
 }
 
-void TeacherManager::println(vector<Teacher> &s) {
-    if(s.empty()){
-        cout<<"未找到"<<endl;
+void TeacherManager::print(vector<Teacher> &s) {
+    if (s.empty()) {
+        cout << "未找到" << endl;
         return;
     }
     int n = 0;
-    cout << setw(10) << "工号" << setw(10) << "姓名" << setw(10) << "部门" << setw(20) << "电话" << endl;
-    Line();
+    cout << "+--------------+--------------+--------------+------------------------+" << endl;
+    cout << "|     工号     |     姓名     |     部门     |          电话          |" << endl;
+    cout << "+--------------+--------------+--------------+------------------------+" << endl;
     for (auto &i: s) {
-        cout << setw(10) << i.getId() << setw(10) << i.getName() << setw(10) << i.getDepart() << setw(20) << i.getPhone()
-             << endl;
+        cout << "| " << setw(12) << i.getId() << " | " << setw(12) << i.getName() << " | " << setw(12) << i.getDepart()
+             << " | " << setw(22) << i.getPhone() << " |" << endl;
         n++;
         if (n % 20 == 0)
             system("pause");
     }
-    boldLine();
+    cout << "+--------------+--------------+--------------+------------------------+" << endl;
     cout << "共有" << n << "条结果" << endl;
-
 }
+
 
 void TeacherManager::add() {
     Teacher stu;
@@ -97,71 +99,76 @@ void TeacherManager::add() {
 
 void TeacherManager::edit() {
     findByName();
-    cout<<"输入要修改的工号：";
+    cout << "输入要修改的工号：";
     string id;
-    cin>>id;
-    int num=teacher_link.getNumById(id);
-    if(num==-1) {
+    cin >> id;
+    int num = teacher_link.getNumById(id);
+    if (num == -1) {
         cout << "未找到" << endl;
         return;
     }
-    cout<<"原信息：";
+    cout << "原信息：";
     print(teachers[num]);
     cout << "1.修改姓名" << endl;
     cout << "2.修改性别" << endl;
     cout << "3.修改专业" << endl;
     cout << "4.修改年级" << endl;
     int op;
-    cout<<"请输入：";
-    cin>>op;
+    cout << "请输入：";
+    cin >> op;
 
     switch (op) {
-        case 1:{cout<<"输入姓名：";
-            string  str;
-            cin>>str;
+        case 1: {
+            cout << "输入姓名：";
+            string str;
+            cin >> str;
             teachers[num].setName(str);
             break;
         }
-        case 2:{cout<<"输入性别：";
-            string  str;
-            cin>>str;
+        case 2: {
+            cout << "输入性别：";
+            string str;
+            cin >> str;
             teachers[num].setSex(str);
             break;
         }
-        case 3:{cout<<"输入部门：";
+        case 3: {
+            cout << "输入部门：";
             string str;
-            cin>>str;
+            cin >> str;
             teachers[num].setName(str);
             break;
         }
-        case 4:{cout<<"输入电话：";
+        case 4: {
+            cout << "输入电话：";
             string str;
-            cin>>str;
+            cin >> str;
             teachers[num].setPhone(str);
             break;
         }
-        default:cout<<"输入错误！"<<endl;
+        default:
+            cout << "输入错误！" << endl;
     }
 
 }
 
 void TeacherManager::del() {
-    cout<<"输入要删除的工号：";
+    cout << "输入要删除的工号：";
     string id;
-    cin>>id;
-    int num=teacher_link.getNumById(id);
-    if(num==-1) {
+    cin >> id;
+    int num = teacher_link.getNumById(id);
+    if (num == -1) {
         cout << "未找到" << endl;
         return;
     }
-    cout<<"原信息：";
+    cout << "原信息：";
     print(teachers[num]);
-    cout<<"确认删除（Yes/No）：";
-    string  str;
-    cin>>str;
-    if(str=="Yes")
+    cout << "确认删除（Yes/No）：";
+    string str;
+    cin >> str;
+    if (str == "Yes")
         teacher_link.del(teachers[num].getId());
-    cout<<"删除成功";
+    cout << "删除成功";
 }
 
 void TeacherManager::findById() {
@@ -179,32 +186,32 @@ void TeacherManager::findById() {
 }
 
 void TeacherManager::print(Teacher s) {
-    cout<<"教师信息："<<endl;
-    cout<<left<<setw(10)<<"工号："<<s.getId()<<endl;
-    cout<<left<<setw(10)<<"姓名："<<s.getName()<<endl;
-    cout<<left<<setw(10)<<"性别："<<s.getSex()<<endl;
-    cout<<left<<setw(10)<<"专业："<<s.getDepart()<<endl;
-    cout<<left<<setw(10)<<"年级："<<s.getPhone()<<endl;
+    cout << "教师信息：" << endl;
+    cout << left << setw(10) << "工号：" << s.getId() << endl;
+    cout << left << setw(10) << "姓名：" << s.getName() << endl;
+    cout << left << setw(10) << "性别：" << s.getSex() << endl;
+    cout << left << setw(10) << "专业：" << s.getDepart() << endl;
+    cout << left << setw(10) << "年级：" << s.getPhone() << endl;
     Line();
 
 
 }
 
 void TeacherManager::findByName() {
-    cout<<"输入姓名：";
+    cout << "输入姓名：";
     string name;
-    cin>>name;
+    cin >> name;
     vector<Teacher> stu;
-    for(auto &s:teachers){
-        if(s.getName().find(name)!=-1)
+    for (auto &s: teachers) {
+        if (s.getName().find(name) != -1)
             stu.push_back(s);
     }
-    println(stu);
+    print(stu);
 }
 
 void TeacherManager::print(string id) {
-    for(auto &s:teachers){
-        if(s.getId()==id) {
+    for (auto &s: teachers) {
+        if (s.getId() == id) {
             print(s);
             return;
         }

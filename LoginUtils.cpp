@@ -4,8 +4,8 @@
 
 #include "LoginUtils.h"
 #include "Database.h"
-#include "AdminSystem.h"
 #include "Display.h"
+#include "AdminMenu.h"
 #include<conio.h>
 
 void LoginUtils::login() {
@@ -47,8 +47,8 @@ void LoginUtils::adminLogin(string username, string password) {
     string uname, upass;
     in >> uname >> upass;
     if (username == uname && password == upass) {
-        AdminSystem a;
-        a.adminSystem();
+        AdminMenu a;
+        a.menu();
     } else
         cout << "ÃÜÂë´íÎó£¡" << endl;
     in.close();

@@ -14,7 +14,9 @@ public:
     void menu();
     void print(Student s);
     void print(string id);
-    void println(vector<Student> &s);
+
+    void print(vector<Student> &s);
+
     void displayAll();
     void add();
     void edit();

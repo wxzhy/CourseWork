@@ -71,8 +71,17 @@ void StudentMenu::selectCourse() {
         if (s.getId() == str) {
             cout << "课程名称：" << course_link.getNameById(str) << "教师："
                  << teacher_link.getNameById(course_link.getTeacherId(str)) << endl;
+            if (s.getCurrent() >= s.getMax()) {
+                cout << "该课程人数已满" << endl;
+                return;
+            } else {
+                score_link.add(id, str, 0.0);
+                cout << "选课成功！" << endl;
+                return;
+            }
         }
     }
+    cout << "未找到该课程" << endl;
 
 }
 

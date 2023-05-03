@@ -46,29 +46,35 @@ void StudentManager::menu() {
 }
 
 void StudentManager::displayAll() {
-    println(students);
+    print(students);
 
 }
 
-void StudentManager::println(vector<Student> &s) {
+void StudentManager::print(vector<Student> &s) {
     if (s.empty()) {
         cout << "未找到" << endl;
         return;
     }
-    int n = 0;
-    cout << setw(10) << "学号" << setw(10) << "姓名" << setw(10) << "专业" << setw(5) << "年级" << endl;
-    Line();
-    for (auto &i: s) {
-        cout << setw(10) << i.getId() << setw(10) << i.getName() << setw(10) << i.getProf() << setw(5) << i.getGrade()
-             << endl;
-        n++;
-        if (n % 20 == 0)
-            system("pause");
-    }
-    boldLine();
-    cout << "共有" << n << "条结果" << endl;
 
+    cout << "+------------+------------+------------+--------+" << endl;
+    cout << "| " << setw(10) << "学号" << " | " << setw(10) << "姓名" << " | "
+         << setw(10) << "专业" << " | " << setw(6) << "年级" << " |" << endl;
+    cout << "+------------+------------+------------+--------+" << endl;
+    int n = 0;
+    for (auto &i: s) {
+        n++;
+        cout << "| " << left << setw(10) << i.getId() << " | " << left << setw(10) << i.getName() << " | " << left
+             << setw(10)
+             << i.getProf() << " | " << left << setw(6) << i.getGrade() << " |" << endl;
+        if (n % 20 == 0) {
+            system("pause");
+        }
+    }
+
+    cout << "+------------+------------+------------+--------+" << endl;
+    cout << "共有" << n << "条结果" << endl;
 }
+
 
 void StudentManager::add() {
     Student stu;
@@ -209,7 +215,7 @@ void StudentManager::findByName() {
         if (s.getName().find(name) != -1)
             stu.push_back(s);
     }
-    println(stu);
+    print(stu);
 }
 
 void StudentManager::print(string id) {

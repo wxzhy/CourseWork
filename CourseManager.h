@@ -6,20 +6,32 @@
 #define COURSEWORK_COURSEMANAGER_H
 
 #include<iostream>
+#include <vector>
+#include "Course.h"
+#include "Database.h"
 
 using namespace std;
 
 
-class CourseManager {
+class CourseManager : public Database {
 public:
     void menu();
 
-    void add();
+    void addCourse();
 
-    void println();
+    void println();//¥Ú”°±Ì∏Ò
 
     void search();
 
+    void showCourse();
+
+    void print(Course c);
+
+    void print(vector<Course> c);
+
+    void deleteCourse();
+
+    void editCourse();
 };
 
 

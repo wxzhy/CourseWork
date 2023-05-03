@@ -11,9 +11,10 @@
 
 using namespace std;
 
-class AdminMenu:public Database,public Display {
-void menu();
+class AdminMenu : public Database, public Display {
 
+public:
+    void menu();
 };
 
 

@@ -28,7 +28,7 @@ public:
 
     void findById();
 
-    void println(vector<Teacher> &s);
+    void print(vector<Teacher> &s);
 };
 
 
