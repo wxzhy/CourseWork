@@ -100,7 +100,7 @@ template<class T>
 void Link<T>::load(string filename) {
     ifstream file(filename);
     if (file.fail())
-        cout <<filename<< "打开失败";
+        cout << filename << "打开失败" << endl;
     T node;
     file >> node;
     while (!file.eof()) {
