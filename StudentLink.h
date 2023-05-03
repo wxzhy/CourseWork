@@ -13,11 +13,12 @@ class StudentLink: public Link<Student>{
 
 public:
     StudentLink(){}
-    void add(string id, string name, string sex, string prof, string grade){
+    void add(string id, string name, string sex, string prof, int grade){
         Student s(id,name,sex,prof,grade);
         link.push_back(s);
     }
-    void update(string id, string name, string sex, string prof, string grade);
+    void update(string id, string name, string sex, string prof, int grade);
+    int getNumById(string id);
 
 };
 

@@ -5,12 +5,20 @@
 #ifndef COURSEWORK_TEACHERMENU_H
 #define COURSEWORK_TEACHERMENU_H
 #include <string>
+#include <vector>
+#include "Database.h"
+#include "Display.h"
+
 using namespace std;
-class TeacherMenu {
+class TeacherMenu:public Database,public Display {
     string id;
+    vector<int> courseNums;
+    vector<int> studentNums;
 public:
     TeacherMenu(string id):id(id){}
-    void teacherMenu();
+    void menu();
+    void getCourses();
+    void courseMenu(int courseNum);
     void addCourse();
 
     void addScore();
@@ -21,6 +29,7 @@ public:
 
     void changePassword();
 
+    void AddScore();
 };
 
 

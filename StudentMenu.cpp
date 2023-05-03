@@ -3,3 +3,8 @@
 //
 
 #include "StudentMenu.h"
+
+void StudentMenu::menu() {
+    cout<<"";
+
+}

@@ -10,18 +10,21 @@
 using namespace std;
 
 class Course {
-    string id, teacherId, name, desc;//教师id,名称，简介
+    string id, teacherId, name;//教师id,名称，简介
+    int current,max;
 public:
-    Course(){}//构造函数
-    Course(string id, string teacherId, string name, string desc):id(id), teacherId(teacherId), name(name), desc(desc){}
+    Course(){current=0;}//构造函数
+    Course(string id, string teacherId, string name, int max): id(id), teacherId(teacherId), name(name), max(max),current(0) {}
     string getId() { return id; }//获得编号
     void setId(string &id) { this->id = id; }//设置编号
     string getTeacherId() { return teacherId; }//获得教师编号
     void setTeacherId(string &tid) { this->teacherId = tid; }//设置教师编号
-    string getName() { return name; }//获得姓名
-    void setName(string &name) { this->name = name; }//设置姓名
-    string getDesc() { return desc; }//获得简介
-    void setDesc(string &desc) { this->desc = desc; }//设置简介
+    string getName() { return name; }//获得名称
+    void setName(string &name) { this->name = name; }//设置名称
+    int getCurrent(){return current;}//获得人数
+    void addCurrent(){current++;}//增加人数
+    int getMax(){return max;}//获得最大人数
+    void setMax(int max){this->max = max;}//设置最大认识
     friend ofstream &operator<<(ofstream &out, Course &c);//重载“〈〈”
     friend ifstream &operator>>(ifstream &in, Course &c);//重载“〈〈”
 

@@ -4,6 +4,7 @@
 #include "AdminSystem.h"
 #include "LoginUtils.h"
 #include "Database.h"
+#include "StudentManager.h"
 
 using namespace std;
 
@@ -41,8 +42,8 @@ int main() {
     u.login();*/
     Database db;
     db.load();
-    AdminSystem a;
-    a.adminSystem();
+    StudentManager s;
+    s.menu();
     db.save();
     cout << "±£´æ³É¹¦£¡" << endl;
     return 0;

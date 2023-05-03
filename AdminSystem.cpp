@@ -74,7 +74,7 @@ void AdminSystem::displayAllCourseInfo(vector<Course> Courses, vector<Teacher> T
     for (auto s: Courses) {
         string teacherName = findTeacherNameById(s.getId());
         cout << left << setw(8) << s.getId() << setw(15) << s.getName() << setw(10) << teacherName << setw(10)
-             << s.getDesc() << endl;
+             << s.getCurrent() << endl;
     }
     system("pause");
 
@@ -123,7 +123,7 @@ void AdminSystem::adminAddStudentInfo() {
     }
     cout << "输入姓名：";
     cin >> name;
-    student_link.add(id,name,"","","");
+    student_link.add(id,name,"","",0);
 
 }
 
@@ -162,11 +162,11 @@ void AdminSystem::adminModifyCourseInfo() {
                 cin >> teacherId;
                 courses[index].setTeacherId(teacherId);
             } else if (op == 3) {
-                string desc;
+                int desc;
                 cout << "输入课程简介" << endl;
                 cout << "> ";
                 cin >> desc;
-                courses[index].setDesc(desc);
+                courses[index].getCurrent();
             } else
                 break;
         }

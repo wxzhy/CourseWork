@@ -18,7 +18,7 @@ public:
 
     User(string &id, string &name, string &sex) : id(id), name(name), sex(sex), password(id) {};
 
-    string getId() { return id; }//获得编号
+    string getId() const { return id; }//获得编号
     void setId(string &id) { this->id = id; }//设置编号
     string getName() { return name; }//获得姓名
     void setName(string &name) { this->name = name; }//设置姓名

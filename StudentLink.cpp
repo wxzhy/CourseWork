@@ -4,7 +4,7 @@
 
 #include "StudentLink.h"
 
-void StudentLink::update(string id, string name, string sex, string prof, string grade) {
+void StudentLink::update(string id, string name, string sex, string prof, int grade) {
     for(auto it=link.begin(); it!=link.end();++it){
         if(it->getId()==id){
             it->setName(name);
@@ -14,4 +14,11 @@ void StudentLink::update(string id, string name, string sex, string prof, string
         }
     }
 
+}
+
+int StudentLink::getNumById(string id) {
+    for(auto it=link.begin(); it!=link.end();++it)
+        if(it->getId()==id)
+            return it-link.begin();
+    return -1;
 }

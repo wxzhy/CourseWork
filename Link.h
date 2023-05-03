@@ -6,6 +6,7 @@
 #define COURSEWORK_LINK_H
 
 #include "Student.h"
+#include <algorithm>
 #include <vector>
 #include <string>
 #include <fstream>
@@ -19,7 +20,6 @@ class Link {
 public:
     vector<T> link;//向量
     Link();
-
     virtual void add(T node);//添加
     virtual void del(string id);//按ID删除
     vector<T> findByName(string name);//按名称查找
@@ -29,7 +29,7 @@ public:
     void save(string filename);//保存到文件
     string getNameById(string id);//根据id查询名称
     vector<string> getIdByName(string name);//根据部分姓名查询id
-    void sort();//根据id排序
+    void sortById();//根据id排序
     bool ifExist(string id);//id是否重复
     void erase(T node);
 
@@ -52,10 +52,9 @@ bool Link<T>::ifExist(string id) {
 }
 
 template<class T>
-void Link<T>::sort() {
-    sort(link.begin(), link.end(), [](const T &lhs, const T &rhs) {
-        return lhs.getId() > rhs.getId();
-    });
+void Link<T>::sortById() {
+    sort(link.begin(), link.end(),
+         [](const T& s1, const T& s2) { return s1.getId() < s2.getId(); });
 }
 
 template<class T>
@@ -89,18 +88,17 @@ template<class T>
 void Link<T>::save(string filename) {
     ofstream file(filename);
     if (file.fail())
-        cout << "写入失败";
+        cout << filename <<"写入失败"<<endl;
     for (auto &n: link)
         file << n;
     file.close();
-    cout << "写入成功";
 }
 
 template<class T>
 void Link<T>::load(string filename) {
     ifstream file(filename);
     if (file.fail())
-        cout << "打开失败";
+        cout <<filename<< "打开失败";
     T node;
     while (!file.eof()) {
         file >> node;

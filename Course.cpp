@@ -6,11 +6,12 @@
 #include<fstream>
 
 ofstream &operator<<(ofstream &out, Course &c) {
-    out << c.id << '\t' << c.name << '\t' << c.teacherId << '\t' << c.desc << endl;
+    out << c.id << '\t' << c.name << '\t' << c.teacherId << '\t' << c.current<<'\t'<<c.max << endl;
     return out;
 }
 
 ifstream &operator>>(ifstream &in, Course &c) {
-    in >> c.id >> c.name >> c.teacherId >> c.desc;
+    in >> c.id >> c.name >> c.teacherId >> c.current >> c.max;
+    in.ignore();
     return in;
 }

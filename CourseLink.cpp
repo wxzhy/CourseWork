@@ -4,10 +4,9 @@
 
 #include "CourseLink.h"
 
-void CourseLink::add(string id, string teacherId, string name, string desc) {
-    Course c(id,teacherId,name,desc);
+void CourseLink::add(string id, string teacherId, string name, int num) {
+    Course c(id,teacherId,name,num);
     link.push_back(c);
-
 
 }
 
@@ -18,9 +17,17 @@ void CourseLink::update(string id, string teacherId, string name, string desc) {
             it->setTeacherId(teacherId);
             if(!name.empty())
             it->setName(name);
-            if(!desc.empty())
-            it->setDesc(desc);
         }
     }
+
+}
+
+vector<int> CourseLink::getNumByTeacherId(string id) {
+    vector<int> nums;
+    for(auto it=link.begin();it!=link.end();++it){
+        if(it->getId()==id)
+            nums.push_back(it-link.begin());
+    }
+    return nums;
 
 }

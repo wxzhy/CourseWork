@@ -73,10 +73,10 @@ public:
                 int index = findTeacherIndexByTeacherId(teacherInfoArray, courseInfoArray[i].getTeacherId());
                 if (index == -1) {
                     cout << left << setw(8) << "课程id" << setw(15) << "课程名称" << setw(10) << "课程老师" << setw(10) << "课程简介" << endl;
-                    cout << left << setw(8) << courseInfoArray[i].getId() << setw(15) << "暂无老师" << setw(10) << teacherName << setw(10) << courseInfoArray[i].getDesc() << endl;
+                    cout << left << setw(8) << courseInfoArray[i].getId() << setw(15) << "暂无老师" << setw(10) << teacherName << setw(10) << courseInfoArray[i].getCurrent() << endl;
                 } else {
                     cout << left << setw(8) << "课程id" << setw(15) << "课程名称" << setw(10) << "课程老师" << setw(10) << "课程简介" << endl;
-                    cout << left << setw(8) << courseInfoArray[i].getId() << setw(15) << courseInfoArray[i].getName() << setw(10) << teacherInfoArray[index].getName() << setw(10) << courseInfoArray[i].getDesc() << endl;
+                    cout << left << setw(8) << courseInfoArray[i].getId() << setw(15) << courseInfoArray[i].getName() << setw(10) << teacherInfoArray[index].getName() << setw(10) << courseInfoArray[i].getCurrent() << endl;
                 }
                 found = 1;
             }
