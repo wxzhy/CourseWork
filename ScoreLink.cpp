@@ -37,3 +37,21 @@ void ScoreLink::del(string studentId, string courseId) {
     }
 
 }
+
+vector<int> ScoreLink::getScoreNumByCourseId(string courseId) {
+    vector<int> n;
+    for(auto it=link.begin(); it!=link.end();++it){
+        if(it->getCourseId() == courseId)
+            n.push_back(it-link.begin());
+    }
+    return n;
+}
+
+vector<int> ScoreLink::getScoreNumByStudentId(string studentId) {
+    vector<int> n;
+    for(auto it=link.begin(); it!=link.end();++it){
+        if(it->getStudentId() == studentId)
+            n.push_back(it-link.begin());
+    }
+    return n;
+}

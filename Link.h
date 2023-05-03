@@ -33,6 +33,7 @@ public:
     bool ifExist(string id);//id «∑Ò÷ÿ∏¥
     void erase(T node);
 
+    int getNumById(string id);
 };
 
 template<class T>
@@ -148,5 +149,12 @@ void Link<T>::add(T node) {
     link.push_back(node);
 }
 
+template<class T>
+int Link<T>::getNumById(string id) {
+    for(auto it=link.begin(); it!=link.end();++it)
+        if(it->getId()==id)
+            return it-link.begin();
+    return -1;
+}
 
 #endif //COURSEWORK_LINK_H

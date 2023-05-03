@@ -13,6 +13,8 @@ class ScoreLink : public Link<Score> {
 public:
     vector<Score> getScoreByStudentId(string studentId);
     vector<Score> getScoreByCourseId(string courseId);
+    vector<int> getScoreNumByCourseId(string courseId);
+    vector<int> getScoreNumByStudentId(string studentId);
 
     void add(string studentId, string courseId, float value);
 

@@ -3,6 +3,7 @@
 //
 
 #include "StudentLink.h"
+#include "Link.h"
 
 void StudentLink::update(string id, string name, string sex, string prof, int grade) {
     for(auto it=link.begin(); it!=link.end();++it){
@@ -16,9 +17,3 @@ void StudentLink::update(string id, string name, string sex, string prof, int gr
 
 }
 
-int StudentLink::getNumById(string id) {
-    for(auto it=link.begin(); it!=link.end();++it)
-        if(it->getId()==id)
-            return it-link.begin();
-    return -1;
-}

@@ -3,6 +3,7 @@
 //
 
 #include "StudentManager.h"
+#include "Link.h"
 
 void StudentManager::menu() {
     while(true) {

@@ -5,6 +5,8 @@
 #include "LoginUtils.h"
 #include "Database.h"
 #include "StudentManager.h"
+#include "TeacherMenu.h"
+#include "TeacherManager.h"
 
 using namespace std;
 
@@ -42,8 +44,8 @@ int main() {
     u.login();*/
     Database db;
     db.load();
-    StudentManager s;
-    s.menu();
+    TeacherManager m;
+    m.menu();
     db.save();
     cout << "±£´æ³É¹¦£¡" << endl;
     return 0;

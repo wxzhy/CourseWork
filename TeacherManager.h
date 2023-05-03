@@ -4,10 +4,31 @@
 
 #ifndef COURSEWORK_TEACHERMANAGER_H
 #define COURSEWORK_TEACHERMANAGER_H
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include "Teacher.h"
+#include "Student.h"
+#include "Display.h"
+#include "Database.h"
 
+using namespace std;
 
-class TeacherManager {
+class TeacherManager:public Database,public Display {
+public:
+    void menu();
+    void print(Teacher s);
+    void print(string id);
+    void displayAll();
+    void add();
+    void edit();
 
+    void del();
+    void findByName();
+
+    void findById();
+
+    void println(vector<Teacher> &s);
 };
 
 

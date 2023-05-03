@@ -7,7 +7,7 @@
 #define courses course_link.link
 #define teachers teacher_link.link
 #define students student_link.link
-#define scores scorelink.link
+#define scores score_link.link
 
 #include "CourseLink.h"
 #include "StudentLink.h"

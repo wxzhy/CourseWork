@@ -18,7 +18,6 @@ public:
         link.push_back(s);
     }
     void update(string id, string name, string sex, string prof, int grade);
-    int getNumById(string id);
 
 };
 
