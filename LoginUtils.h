@@ -15,8 +15,6 @@ class LoginUtils : public Database, public Display {
 public:
     void login();
 
-    unsigned selectLoginType();
-
     string adminLogin();
 
     string teacherLogin();

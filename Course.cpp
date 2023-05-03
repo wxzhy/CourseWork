@@ -12,6 +12,5 @@ ofstream &operator<<(ofstream &out, Course &c) {
 
 ifstream &operator>>(ifstream &in, Course &c) {
     in >> c.id >> c.name >> c.teacherId >> c.current >> c.max;
-    in.ignore();
     return in;
 }

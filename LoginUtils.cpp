@@ -69,7 +69,7 @@ string LoginUtils::teacherLogin() {
             return username;
         }
     }
-    cout << "ÃÜÂë´íÎó£¡" << endl;
+    return "";
 
 }
 
@@ -86,7 +86,7 @@ string LoginUtils::adminLogin() {
         return username;
     } else
         return "";
-    in.close();
+
 }
 
 string LoginUtils::studentLogin() {
@@ -103,9 +103,6 @@ string LoginUtils::studentLogin() {
     return "";
 }
 
-unsigned LoginUtils::selectLoginType() {
-
-}
 
 void LoginUtils::updatePassword() {
     cout << "Ñ¡ÔñÉí·Ý£º" << endl;

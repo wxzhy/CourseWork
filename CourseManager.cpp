@@ -58,10 +58,13 @@ void CourseManager::addCourse() {
     cout << "输入课程教师工号：";
     cin >> str;
     c.setTeacherId(str);
-    cout << "输入最大人数";
+    cout << "输入最大人数：";
     int i;
     cin >> i;
     c.setMax(i);
+    courses.push_back(c);
+    course_link.sortById();
+    cout << "添加成功" << endl;
 }
 
 
@@ -84,22 +87,23 @@ void CourseManager::print(vector<Course> c) {
         return;
     }
 
-    cout << "+------------+---------------+-----------------+-------+-------+" << endl;
+    cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
     cout << "| " << setw(10) << "课程编号" << " | " << setw(15) << "课程名称" << " | "
-         << setw(15) << "授课教师" << " | " << setw(5) << "当前人数" << " | "
-         << setw(5) << "最大人数" << " |" << endl;
-    cout << "+------------+---------------+-----------------+-------+-------+" << endl;
+         << setw(15) << "授课教师" << " | " << setw(8) << "当前人数" << " | "
+         << setw(8) << "最大人数" << " |" << endl;
+    cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
 
     for (auto &i: c) {
         cout << "| " << left << setw(10) << i.getId() << " | " << left << setw(15) << i.getName() << " | " << left
              << setw(15)
-             << teacher_link.getNameById(i.getTeacherId()) << " | " << left << setw(5) << i.getCurrent() << " | "
-             << left << setw(5) << i.getMax() << " |" << endl;
+             << teacher_link.getNameById(i.getTeacherId()) << " | " << right << setw(8) << i.getCurrent() << " | "
+             << right << setw(8) << i.getMax() << " |" << endl;
     }
 
-    cout << "+------------+---------------+-----------------+-------+-------+" << endl;
+    cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
     cout << "共有" << c.size() << "条结果" << endl;
 }
+
 
 void CourseManager::deleteCourse() {
     cout << "输入要删除的课程编号；";

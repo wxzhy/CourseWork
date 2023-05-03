@@ -19,8 +19,6 @@ public:
 
     void addCourse();
 
-    void println();//¥Ú”°±Ì∏Ò
-
     void search();
 
     void showCourse();

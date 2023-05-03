@@ -37,6 +37,10 @@ public:
     void editScore();
 
     void calculate();
+
+    void sortByScore();
+
+    void sortById();
 };
 
 

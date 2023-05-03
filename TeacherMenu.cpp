@@ -20,6 +20,8 @@ void TeacherMenu::courseMenu(int courseNum) {
     cout << "2.录入学生成绩" << endl;
     cout << "3.修改学生成绩" << endl;
     cout << "4.统计信息" << endl;
+    cout << "5.按成绩排序" << endl;
+    cout << "6.按学号排序" << endl;
     cout << "0.退出" << endl;
     int op;
     cin >> op;
@@ -36,6 +38,16 @@ void TeacherMenu::courseMenu(int courseNum) {
         case 4:
             calculate();
             break;
+        case 5:
+            sortByScore();
+            break;
+        case 6:
+            sortById();
+        case 0:
+            return;
+        default:
+            return;
+
     }
 }
 
@@ -50,30 +62,35 @@ void TeacherMenu::AddScore() {
 }
 
 void TeacherMenu::menu() {
-    cout << "姓名： " << teacher_link.getNameById(id) << endl;
-    getCourses();
-    if (courseNums.empty()) {
-        cout << "无课程！" << endl;
-    } else {
-        int n = 0;
-        cout << "课程信息：" << endl;
-        cout << left << setw(5) << "序号" << left << setw(10) << "课程编号" << left << setw(15) << "课程名称" << setw(5)
-             << "人数" << setw(5) << "最大"
-             << endl;
-
-        for (auto &s: courseNums) {
-            cout << left << setw(5) << (++n) << left << setw(10) << courses[s].getId() << left << setw(15)
-                 << courses[s].getName() << setw(5)
-                 << courses[s].getCurrent() << setw(5) << courses[s].getMax()
-                 << endl;
-        }
-        cout << "请选择要操作的课程序号：";
-        int choice;
-        cin >> choice;
-        if (choice <= 0 || choice > courseNums.size()) {
-            cout << "输入错误！" << endl;
+    while (true) {
+        cout << "姓名： " << teacher_link.getNameById(id) << endl;
+        getCourses();
+        if (courseNums.empty()) {
+            cout << "无课程！" << endl;
+            return;
         } else {
-            courseMenu(courseNums[choice - 1]);
+            int n = 0;
+            cout << "课程信息：" << endl;
+            cout << left << setw(5) << "序号" << left << setw(10) << "课程编号" << left << setw(15) << "课程名称"
+                 << setw(5)
+                 << "人数" << setw(5) << "最大"
+                 << endl;
+
+            for (auto &s: courseNums) {
+                cout << left << setw(5) << (++n) << left << setw(10) << courses[s].getId() << left << setw(15)
+                     << courses[s].getName() << setw(5)
+                     << courses[s].getCurrent() << setw(5) << courses[s].getMax()
+                     << endl;
+            }
+            cout << "请选择要操作的课程序号：";
+            int choice;
+            cin >> choice;
+            if (choice <= 0 || choice > courseNums.size()) {
+                //cout << "输入错误！" << endl;
+                return;
+            } else {
+                courseMenu(courseNums[choice - 1]);
+            }
         }
     }
 
@@ -93,7 +110,7 @@ void TeacherMenu::showScore() {
     Line();
     for (auto &i: studentNums) {
         cout << left << setw(10) << scores[studentNums[i]].getId() << left << setw(10)
-             << student_link.getNameById(scores[studentNums[i]].getId()) << left << setprecision(1) << setw(5)
+             << student_link.getNameById(scores[studentNums[i]].getId()) << left << setprecision(3) << setw(5)
              << scores[studentNums[i]].getValue() << endl;
         n++;
         if (n % 20 == 0)
@@ -124,7 +141,7 @@ void TeacherMenu::editScore() {
         if (scores[i].getId() == studentId) {
             cout << "原成绩：" << endl;
             cout << "学号：" << scores[i].getId() << "姓名："
-                 << student_link.getNameById(scores[i].getId()) << "成绩：" << setprecision(1) << scores[i].getValue()
+                 << student_link.getNameById(scores[i].getId()) << "成绩：" << setprecision(3) << scores[i].getValue()
                  << endl;
             cout << "输入新的成绩";
             float s;
@@ -145,11 +162,23 @@ void TeacherMenu::calculate() {
     }
     total /= studentNums.size();
     cout << "总人数：" << studentNums.size() << endl;
-    cout << "平均分：" << setprecision(1) << total << endl;
+    cout << "平均分：" << setprecision(3) << total << endl;
 
 }
 
 void TeacherMenu::changePassword() {
     cout << "输入密码：";
+
+}
+
+void TeacherMenu::sortByScore() {
+    score_link.sortByValue();
+    cout << "已排序" << endl;
+
+}
+
+void TeacherMenu::sortById() {
+    score_link.sortByStudentId();
+    cout << "已排序" << endl;
 
 }

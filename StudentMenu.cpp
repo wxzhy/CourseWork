@@ -6,30 +6,32 @@
 #include "StudentMenu.h"
 
 void StudentMenu::menu() {
-    cout << "学生姓名： " << student_link.getNameById(id) << endl;
-    cout << "1.查询成绩" << endl;
-    cout << "2.选课" << endl;
-    cout << "3.课程查询" << endl;
-    cout << "4.课程搜索" << endl;
-    cout << "0.返回" << endl;
-    cout << "请输入：";
-    int op;
-    cin >> op;
-    switch (op) {
-        case 1:
-            getScore();
-            break;
-        case 2:
-            selectCourse();
-            break;
-        case 3:
-            findCourse();
-            break;
-        case 4:
-            searchCourse();
-            break;
-        default:
-            cout << "输入错误！" << endl;
+    while (true) {
+        cout << "学生姓名： " << student_link.getNameById(id) << endl;
+        cout << "1.查询成绩" << endl;
+        cout << "2.选课" << endl;
+        cout << "3.课程查询" << endl;
+        cout << "4.课程搜索" << endl;
+        cout << "0.返回" << endl;
+        cout << "请输入：";
+        int op;
+        cin >> op;
+        switch (op) {
+            case 1:
+                getScore();
+                break;
+            case 2:
+                selectCourse();
+                break;
+            case 3:
+                findCourse();
+                break;
+            case 4:
+                searchCourse();
+                break;
+            default:
+                cout << "输入错误！" << endl;
+        }
     }
 
 }
@@ -40,7 +42,7 @@ void StudentMenu::getScore() {
     float sum = 0.0;
     for (auto &s: scores) {
         if (s.getStudentId() == id) {
-            cout << left << setw(10) << course_link.getNameById(s.getCourseId()) << left << setw(5) << setprecision(1)
+            cout << left << setw(10) << course_link.getNameById(s.getCourseId()) << left << setw(5) << setprecision(3)
                  << s.getValue() << endl;
             sum += s.getValue();
             i++;
@@ -54,7 +56,7 @@ void StudentMenu::getScore() {
     }
     sum /= i;
     cout << "总计：" << i << "门" << endl;
-    cout << "平均分" << setprecision(1) << sum << endl;
+    cout << "平均分" << setprecision(3) << sum << endl;
 }
 
 void StudentMenu::selectCourse() {

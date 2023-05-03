@@ -22,6 +22,8 @@ public:
     string getTeacherId(string id);
 
     void addCurrent(string id);
+
+    void sortById();
 };
 
 

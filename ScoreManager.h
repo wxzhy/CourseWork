@@ -6,7 +6,13 @@
 #define COURSEWORK_SCOREMANAGER_H
 
 
-class ScoreManager {
+#include "Display.h"
+#include "Database.h"
+#include <iostream>
+
+using namespace std;
+
+class ScoreManager : public Database, public Display {
 public:
     void menu();
 
@@ -15,6 +21,14 @@ public:
     void editScore();
 
     void delScore();
+
+    void showAll();
+
+    void print(vector<Score> s);
+
+    void del();
+
+    void queryByCourse();
 };
 
 

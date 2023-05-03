@@ -3,7 +3,7 @@
 //
 
 #include "CourseLink.h"
-
+#include <algorithm>
 void CourseLink::add(string id, string teacherId, string name, int num) {
     Course c(id,teacherId,name,num);
     link.push_back(c);
@@ -49,4 +49,9 @@ void CourseLink::addCurrent(string id) {
         }
     }
 
+}
+
+void CourseLink::sortById() {
+    sort(link.begin(), link.end(),
+         [](Course &s1, Course &s2) { return s1.getId() < s2.getId(); });
 }
