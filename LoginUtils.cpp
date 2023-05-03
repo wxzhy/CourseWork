@@ -5,6 +5,7 @@
 #include "LoginUtils.h"
 #include "Database.h"
 #include "AdminSystem.h"
+#include "Display.h"
 #include<conio.h>
 
 void LoginUtils::login() {
@@ -27,25 +28,6 @@ void LoginUtils::login() {
         default:
             cout << "µÇÂ¼Ê§°Ü£¡" << endl;
     }
-}
-
-string LoginUtils::PassRead() {
-    char c;
-    string s;
-    c = getch();
-    while (c != '\r') {
-        if (c == '\b' && s.length() > 0) {
-            cout << "\b \b";
-            s.pop_back();
-        } else {
-            s.push_back(c);
-            cout << "*";
-        }
-        c = getch();
-    }
-    cout << '\n';
-
-    return s;
 }
 
 void LoginUtils::teacherLogin(string username, string password) {

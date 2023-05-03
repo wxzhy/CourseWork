@@ -4,17 +4,28 @@
 
 #ifndef COURSEWORK_STUDENTMENU_H
 #define COURSEWORK_STUDENTMENU_H
+
 #include <iostream>
+#include "Database.h"
+
 using namespace std;
 
-class StudentMenu {
-    int id;
+class StudentMenu : public Database {
+    string id;
+    vector<Score> sc;
 public:
-    StudentMenu(int id) : id(id) {}
+    StudentMenu(string id) : id(id) {}
+
     void menu();
+
     void getScore();
 
     //void selectCourse();
+    void selectCourse();
+
+    void findCourse();
+
+    void searchCourse();
 };
 
 

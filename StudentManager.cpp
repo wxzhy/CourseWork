@@ -6,7 +6,7 @@
 #include "Link.h"
 
 void StudentManager::menu() {
-    while(true) {
+    while (true) {
         cout << "1.查看全部学生" << endl;
         cout << "2.添加学生" << endl;
         cout << "3.修改学生" << endl;
@@ -39,7 +39,7 @@ void StudentManager::menu() {
             case 0:
                 return;
             default:
-                cout<<"输入错误！"<<endl;
+                cout << "输入错误！" << endl;
 
         }
     }
@@ -51,8 +51,8 @@ void StudentManager::displayAll() {
 }
 
 void StudentManager::println(vector<Student> &s) {
-    if(s.empty()){
-        cout<<"未找到"<<endl;
+    if (s.empty()) {
+        cout << "未找到" << endl;
         return;
     }
     int n = 0;
@@ -100,71 +100,78 @@ void StudentManager::add() {
 
 void StudentManager::edit() {
     findByName();
-    cout<<"输入要修改的学号：";
+    cout << "输入要修改的学号：";
     string id;
-    cin>>id;
-    int num=student_link.getNumById(id);
-    if(num==-1) {
+    cin >> id;
+    int num = student_link.getNumById(id);
+    if (num == -1) {
         cout << "未找到" << endl;
         return;
     }
-    cout<<"原信息：";
+    cout << "原信息：";
     print(students[num]);
     cout << "1.修改姓名" << endl;
     cout << "2.修改性别" << endl;
     cout << "3.修改专业" << endl;
     cout << "4.修改年级" << endl;
     int op;
-    cout<<"请输入：";
-    cin>>op;
+    cout << "请输入：";
+    cin >> op;
 
     switch (op) {
-        case 1:{cout<<"输入姓名：";
-            string  str;
-            cin>>str;
+        case 1: {
+            cout << "输入姓名：";
+            string str;
+            cin >> str;
             students[num].setName(str);
             break;
         }
-        case 2:{cout<<"输入性别：";
-            string  str;
-            cin>>str;
+        case 2: {
+            cout << "输入性别：";
+            string str;
+            cin >> str;
             students[num].setSex(str);
             break;
         }
-        case 3:{cout<<"输入专业：";
+        case 3: {
+            cout << "输入专业：";
             string str;
-            cin>>str;
+            cin >> str;
             students[num].setName(str);
             break;
         }
-        case 4:{cout<<"输入年级：";
+        case 4: {
+            cout << "输入年级：";
             int str;
-            cin>>str;
+            cin >> str;
             students[num].setGrade(str);
             break;
         }
-        default:cout<<"输入错误！"<<endl;
+        default:
+            cout << "输入错误！" << endl;
     }
 
 }
 
 void StudentManager::del() {
-    cout<<"输入要删除的学号：";
+    cout << "输入要删除的学号：";
     string id;
-    cin>>id;
-    int num=student_link.getNumById(id);
-    if(num==-1) {
+    cin >> id;
+    int num = student_link.getNumById(id);
+    if (num == -1) {
         cout << "未找到" << endl;
         return;
     }
-    cout<<"原信息：";
+    cout << "原信息：";
     print(students[num]);
-    cout<<"确认删除（Yes/No）：";
-    string  str;
-    cin>>str;
-    if(str=="Yes")
+    cout << "确认删除（Yes/No）：";
+    string str;
+    cin >> str;
+    if (str == "Yes") {
         student_link.del(students[num].getId());
-    cout<<"删除成功";
+        score_link.deleteByStudentId(students[num].getId());
+    }
+    cout << "删除成功";
 }
 
 void StudentManager::findById() {
@@ -182,32 +189,32 @@ void StudentManager::findById() {
 }
 
 void StudentManager::print(Student s) {
-    cout<<"学生信息："<<endl;
-    cout<<left<<setw(10)<<"学号："<<s.getId()<<endl;
-    cout<<left<<setw(10)<<"姓名："<<s.getName()<<endl;
-    cout<<left<<setw(10)<<"性别："<<s.getSex()<<endl;
-    cout<<left<<setw(10)<<"专业："<<s.getProf()<<endl;
-    cout<<left<<setw(10)<<"年级："<<s.getGrade()<<endl;
+    cout << "学生信息：" << endl;
+    cout << left << setw(10) << "学号：" << s.getId() << endl;
+    cout << left << setw(10) << "姓名：" << s.getName() << endl;
+    cout << left << setw(10) << "性别：" << s.getSex() << endl;
+    cout << left << setw(10) << "专业：" << s.getProf() << endl;
+    cout << left << setw(10) << "年级：" << s.getGrade() << endl;
     Line();
 
 
 }
 
 void StudentManager::findByName() {
-    cout<<"输入姓名：";
+    cout << "输入姓名：";
     string name;
-    cin>>name;
+    cin >> name;
     vector<Student> stu;
-    for(auto &s:students){
-        if(s.getName().find(name)!=-1)
+    for (auto &s: students) {
+        if (s.getName().find(name) != -1)
             stu.push_back(s);
     }
     println(stu);
 }
 
 void StudentManager::print(string id) {
-    for(auto &s:students){
-        if(s.getId()==id) {
+    for (auto &s: students) {
+        if (s.getId() == id) {
             print(s);
             return;
         }

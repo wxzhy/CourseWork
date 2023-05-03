@@ -7,17 +7,20 @@
 #include<string>
 #include<iostream>
 #include "Database.h"
+#include "Display.h"
 
 using namespace std;
 
-class LoginUtils :public Database{
+class LoginUtils : public Database, public Display {
 public:
     void login();
 
-    string PassRead();
     unsigned selectLoginType();
+
     void adminLogin(string username, string password);
+
     void teacherLogin(string username, string password);
+
     void studentLogin(string username, string password);
 };
 

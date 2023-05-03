@@ -49,9 +49,15 @@ vector<int> ScoreLink::getScoreNumByCourseId(string courseId) {
 
 vector<int> ScoreLink::getScoreNumByStudentId(string studentId) {
     vector<int> n;
-    for(auto it=link.begin(); it!=link.end();++it){
-        if(it->getStudentId() == studentId)
-            n.push_back(it-link.begin());
+    for (auto it = link.begin(); it != link.end(); ++it) {
+        if (it->getStudentId() == studentId)
+            n.push_back(it - link.begin());
     }
     return n;
+}
+
+void ScoreLink::deleteByStudentId(string studentId) {
+    for (auto it = link.begin(); it != link.end(); it++)
+        if (it->getStudentId() == studentId)
+            link.erase(it);
 }

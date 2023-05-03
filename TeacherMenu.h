@@ -10,15 +10,18 @@
 #include "Display.h"
 
 using namespace std;
-class TeacherMenu:public Database,public Display {
+class TeacherMenu : public Database, public Display {
     string id;
-    vector<int> courseNums;
-    vector<int> studentNums;
+    vector<int> courseNums;//存储该教师的课程
+    vector<int> studentNums;//存储该课程的学生
 public:
-    TeacherMenu(string id):id(id){}
+    TeacherMenu(string id) : id(id) {}
+
     void menu();
+
     void getCourses();
-    void courseMenu(int courseNum);
+
+    void courseMenu(int courseNum);//课程菜单
     void addCourse();
 
     void addScore();

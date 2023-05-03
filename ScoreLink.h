@@ -18,6 +18,7 @@ public:
 
     void add(string studentId, string courseId, float value);
 
+    void deleteByStudentId(string studentId);
 public:
     ScoreLink() {}
     void del(string studentId, string courseId);

@@ -22,7 +22,7 @@ void TeacherMenu::courseMenu(int courseNum) {
     cout << "4.统计信息" << endl;
     cout << "0.退出" << endl;
     int op;
-    cin>>op;
+    cin >> op;
     switch (op) {
         case 1:
             showScore();
@@ -33,9 +33,9 @@ void TeacherMenu::courseMenu(int courseNum) {
         case 3:
             editScore();
             break;
-            case 4:
-                calculate();
-                break;
+        case 4:
+            calculate();
+            break;
     }
 }
 
@@ -99,34 +99,57 @@ void TeacherMenu::showScore() {
         if (n % 20 == 0)
             system("pause");
     }
-        boldLine();
-        cout << "共有" << n << "条结果" << endl;
+    boldLine();
+    cout << "共有" << n << "条结果" << endl;
 
-    }
-
+}
 
 
 void TeacherMenu::addScore() {
     for (auto &i: studentNums) {
-        cout << "学号：" << scores[studentNums[i]].getId()<<"姓名："<<student_link.getNameById(scores[studentNums[i]].getId())<<endl;
-        cout<<"输入成绩：";
+        cout << "学号：" << scores[studentNums[i]].getId() << "姓名："
+             << student_link.getNameById(scores[studentNums[i]].getId()) << endl;
+        cout << "输入成绩：";
         float score;
-        cin>>score;
+        cin >> score;
         scores[studentNums[i]].setValue(score);
     }
 }
 
 void TeacherMenu::editScore() {
-
+    cout << "输入学号：";
+    string studentId;
+    cin >> studentId;
+    for (auto &i: studentNums) {
+        if (scores[i].getId() == studentId) {
+            cout << "原成绩：" << endl;
+            cout << "学号：" << scores[i].getId() << "姓名："
+                 << student_link.getNameById(scores[i].getId()) << "成绩：" << setprecision(1) << scores[i].getValue()
+                 << endl;
+            cout << "输入新的成绩";
+            float s;
+            cin >> s;
+            scores[i].setValue(s);
+            cout << "修改成功" << endl;
+            return;
+        }
+        cout << "未找到该学生" << endl;
+    }
 }
 
 void TeacherMenu::calculate() {
-    float total=0.0;
+    float total = 0.0;
 
-    for(auto &i: studentNums) {
-        total+=scores[studentNums[i]].getValue();
+    for (auto &i: studentNums) {
+        total += scores[studentNums[i]].getValue();
     }
-    total/=studentNums.size();
-    cout<<"平均分："<<setprecision(1)<<total<<endl;
+    total /= studentNums.size();
+    cout << "总人数：" << studentNums.size() << endl;
+    cout << "平均分：" << setprecision(1) << total << endl;
+
+}
+
+void TeacherMenu::changePassword() {
+    cout << "输入密码：";
 
 }

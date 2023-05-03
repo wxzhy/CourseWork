@@ -2,12 +2,17 @@
 // Created by Admin on 2023/5/2.
 //
 
+#include "AdminSystem.h"
+#include "Database.h"
+#include "LoginUtils.h"
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
 #include <string>
 #include "Display.h"
+
 using namespace std;
+
 void Display::start() {
     system("cls");
     system("chcp 936>nul");
@@ -38,3 +43,21 @@ void Display::Head(string s) {
 
 }
 
+string Display::PassRead() {
+    char c;
+    string s;
+    c = getch();
+    while (c != '\r') {
+        if (c == '\b' && s.length() > 0) {
+            cout << "\b \b";
+            s.pop_back();
+        } else {
+            s.push_back(c);
+            cout << "*";
+        }
+        c = getch();
+    }
+    cout << '\n';
+
+    return s;
+}

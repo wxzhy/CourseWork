@@ -3,6 +3,7 @@
 //
 
 #include "AdminSystem.h"
+
 void AdminSystem::adminSystem() {
 
     //system("cls");
@@ -105,8 +106,8 @@ void AdminSystem::adminQueryStudentInfo() {
         cout << "未找到" << endl;
     else {
         for (auto &stu: s) {
-            if(stu.getName().find(str)!=-1)
-                cout<<"学号"<<stu.getId()<<"姓名："<<stu.getName() << endl;
+            if (stu.getName().find(str) != -1)
+                cout << "学号" << stu.getId() << "姓名：" << stu.getName() << endl;
         }
     }
 
@@ -123,7 +124,7 @@ void AdminSystem::adminAddStudentInfo() {
     }
     cout << "输入姓名：";
     cin >> name;
-    student_link.add(id,name,"","",0);
+    student_link.add(id, name, "", "", 0);
 
 }
 
@@ -141,7 +142,7 @@ void AdminSystem::adminModifyCourseInfo() {
     int index = findCourseIndexByCourseId(courses, courceId);
     if (index == -1) {
         cout << "未找到该课程" << endl;
-     //   back();
+        //   back();
         adminSystem();
     } else {
         int op;
@@ -180,80 +181,78 @@ void AdminSystem::adminModifyCourseInfo() {
 }
 
 int AdminSystem::findCourseIndexByCourseId(vector<Course> course, string courseId) {
-    for(auto it=course.begin(); it!=course.end(); it++)
-        if(it->getId()==courseId)
-            return it-course.begin();
+    for (auto it = course.begin(); it != course.end(); it++)
+        if (it->getId() == courseId)
+            return it - course.begin();
     return -1;
 }
 
 void AdminSystem::adminDeleteStudentInfo() {
     string id;
-    cout<<"输入学号：";
-    cin>>id;
-    if(student_link.ifExist(id)){
+    cout << "输入学号：";
+    cin >> id;
+    if (student_link.ifExist(id)) {
         student_link.del(id);
-        cout<<"删除成功！"<<endl;
-    }
-    else{
-        cout<<"未找到！"<<endl;
+        cout << "删除成功！" << endl;
+    } else {
+        cout << "未找到！" << endl;
     }
 
 }
 
 void AdminSystem::adminQueryTeacherInfo() {
-    cout<<"1.按编号查找"<<endl;
-    cout<<"2.按姓名查找"<<endl;
-    cout<<"其他）返回"<<endl;
-    cout<<"请输入：";
+    cout << "1.按编号查找" << endl;
+    cout << "2.按姓名查找" << endl;
+    cout << "其他）返回" << endl;
+    cout << "请输入：";
     int op;
-    cin>>op;
-    if(op==1) { cout << "请输入编号：" << endl;
+    cin >> op;
+    if (op == 1) {
+        cout << "请输入编号：" << endl;
         string id;
 
-    cin>>id;
+        cin >> id;
 
     }
 
 }
 
 void AdminSystem::adminAddTeacherInfo() {
-    string id,name;
-    cout<<"输入编号：";
-    cin>>id;
-    if(teacher_link.ifExist(id)){
-        cout<<"编号已存在！"<<endl;
+    string id, name;
+    cout << "输入编号：";
+    cin >> id;
+    if (teacher_link.ifExist(id)) {
+        cout << "编号已存在！" << endl;
         return;
     }
-    cout<<"输入姓名：";
-    cin>>name;
-    teacher_link.add(id,name,"","","");
+    cout << "输入姓名：";
+    cin >> name;
+    teacher_link.add(id, name, "", "", "");
 
 }
 
 void AdminSystem::adminDeleteTeacherInfo() {
-    cout<<"输入教师编号："<<endl;
+    cout << "输入教师编号：" << endl;
     string id;
-    cin>>id;
-    if(teacher_link.ifExist(id)){
+    cin >> id;
+    if (teacher_link.ifExist(id)) {
         teacher_link.del(id);
-        cout<<"删除成功！"<<endl;
-    }
-    else{
-        cout<<"未找到！"<<endl;
+        cout << "删除成功！" << endl;
+    } else {
+        cout << "未找到！" << endl;
     }
 
 }
 
 void AdminSystem::adminDeleteCourseInfo() {
-    cout<<"输入教师编号："<<endl;
+    cout << "输入教师编号：" << endl;
     string id;
-    cin>>id;
-    if(course_link.ifExist(id)){
+    cin >> id;
+    if (course_link.ifExist(id)) {
         course_link.del(id);
-        cout<<"删除成功！"<<endl;
-    }
-    else{
-        cout<<"未找到！"<<endl;
+        cout << "删除成功！" << endl;
+    } else {
+        cout << "未找到！" << endl;
     }
 
 }
@@ -263,34 +262,33 @@ void AdminSystem::adminModifyTeacherInfo() {
 }
 
 void AdminSystem::adminQueryStudentScoreInfo() {
-    cout<<"输入学号：";
+    cout << "输入学号：";
     string id;
-    cin>>id;
-    vector<Score> s=score_link.getScoreByStudentId(id);
-    if(s.empty()) {
-        cout<<"不存在"<<endl;
-    }
-    else{
-        string studentName,courseName;
-        for(auto i:s){
-            studentName=student_link.getNameById(i.getStudentId());
-            courseName=student_link.getNameById(i.getCourseId());
-            cout<<"学生姓名："<<studentName<<"课程："<<courseName<<"成绩："<<i.getValue()<<endl;
+    cin >> id;
+    vector<Score> s = score_link.getScoreByStudentId(id);
+    if (s.empty()) {
+        cout << "不存在" << endl;
+    } else {
+        string studentName, courseName;
+        for (auto i: s) {
+            studentName = student_link.getNameById(i.getStudentId());
+            courseName = student_link.getNameById(i.getCourseId());
+            cout << "学生姓名：" << studentName << "课程：" << courseName << "成绩：" << i.getValue() << endl;
         }
     }
 
 }
 
 void AdminSystem::adminAddStudentScoreInfo() {
-    string sid,cid;
+    string sid, cid;
     float score;
-    cout<<"输入学号：";
-    cin>>sid;
-    cout<<"输入课程编号：";
-    cin>>cid;
-    cout<<"输入成绩：";
-    cin>>score;
-    score_link.add(sid,cid,score);
+    cout << "输入学号：";
+    cin >> sid;
+    cout << "输入课程编号：";
+    cin >> cid;
+    cout << "输入成绩：";
+    cin >> score;
+    score_link.add(sid, cid, score);
 }
 
 void AdminSystem::adminModifyStudentScoreInfo() {
@@ -298,11 +296,11 @@ void AdminSystem::adminModifyStudentScoreInfo() {
 }
 
 void AdminSystem::adminDeleteStudentScoreInfo() {
-    string sid,cid;
-    cout<<"输入学号：";
-    cin>>sid;
-    cout<<"输入课程编号：";
-    cin>>cid;
+    string sid, cid;
+    cout << "输入学号：";
+    cin >> sid;
+    cout << "输入课程编号：";
+    cin >> cid;
 
 }
 

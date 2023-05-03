@@ -11,11 +11,15 @@
 
 class CourseLink : public Link<Course> {
 public:
-    CourseLink() {  }
-    void update(string id,string teacherId,string name,string desc);
+    CourseLink() {}
+
+    void update(string id, string teacherId, string name, string desc);
 
     void add(string id, string teacherId, string name, int num);
+
     vector<int> getNumByTeacherId(string id);
+
+    string getTeacherId(string id);
 };
 
 

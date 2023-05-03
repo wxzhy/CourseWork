@@ -6,15 +6,25 @@
 #define COURSEWORK_DISPLAY_H
 
 
+#include "Database.h"
+#include<iostream>
 #include <string>
+
 using namespace std;
+
 class Display {
 public:
     void start();
+
     void Head();
+
     void Head(string s);
+
     void Line();
+
     void boldLine();
+
+    string PassRead();
 };
 
 

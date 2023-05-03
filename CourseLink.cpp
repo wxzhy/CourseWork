@@ -24,10 +24,19 @@ void CourseLink::update(string id, string teacherId, string name, string desc) {
 
 vector<int> CourseLink::getNumByTeacherId(string id) {
     vector<int> nums;
-    for(auto it=link.begin();it!=link.end();++it){
-        if(it->getId()==id)
-            nums.push_back(it-link.begin());
+    for (auto it = link.begin(); it != link.end(); ++it) {
+        if (it->getId() == id)
+            nums.push_back(it - link.begin());
     }
     return nums;
 
+}
+
+string CourseLink::getTeacherId(string id) {
+    for (auto &s: link) {
+        if (s.getId() == id) {
+            return id;
+        }
+    }
+    return "";
 }
