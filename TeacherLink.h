@@ -9,14 +9,13 @@
 #include "Teacher.h"
 #include "Link.h"
 
-class TeacherLink: public Link<Teacher>  {
+class TeacherLink : public Link<Teacher> {
 public:
-    TeacherLink(){}
-    void add(string id, string name, string sex, string depart, string phone){
-        Teacher t(id,name,sex,depart,phone);
-        link.push_back(t);
-    }
-    void modify();
+    TeacherLink() {}
+
+    void add(string id, string name, string sex, string depart, string phone);
+
+    void updatePassword(string id, string password);
 
 };
 

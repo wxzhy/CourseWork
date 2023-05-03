@@ -6,65 +6,108 @@
 #include "Database.h"
 #include "Display.h"
 #include "AdminMenu.h"
+#include "TeacherMenu.h"
+#include "StudentMenu.h"
 #include<conio.h>
 
 void LoginUtils::login() {
-    unsigned type = selectLoginType();
+    while (true) {
+        cout << "Ñ¡ÔñÉí·Ý£º" << endl;
+        cout << "1.¹ÜÀíÔ±" << endl;
+        cout << "2.½ÌÊ¦" << endl;
+        cout << "3.Ñ§Éú" << endl;
+        cout << "4.ÐÞ¸ÄÃÜÂë" << endl;
+        cout << "0.ÍË³ö" << endl;
+        cout << "ÇëÊäÈë£º";
+        int op;
+        cin >> op;
+        switch (op) {
+            case 1: {
+                string result = adminLogin();
+                if (result.length())
+                    AdminMenu().menu();
+                else
+                    cout << "ÃÜÂë´íÎó£¡" << endl;
+            }
+                break;
+            case 2: {
+                string result = teacherLogin();
+                if (result.length())
+                    TeacherMenu(result).menu();
+                else
+                    cout << "ÃÜÂë´íÎó£¡" << endl;
+            }
+                break;
+            case 3: {
+                string result = studentLogin();
+                if (result.length())
+                    StudentMenu(result).menu();
+                else
+                    cout << "ÃÜÂë´íÎó£¡" << endl;
+            }
+                break;
+            case 4:
+                updatePassword();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "µÇÂ¼Ê§°Ü£¡" << endl;
+        }
+    }
+}
+
+string LoginUtils::teacherLogin() {
     string username, password;
     cout << "ÊäÈëÓÃ»§Ãû£º";
     cin >> username;
     cout << "ÊäÈëÃÜÂë£º";
     password = PassRead();
-    switch (type) {
-        case 1:
-            adminLogin(username, password);
-            break;
-        case 2:
-            teacherLogin(username, password);
-            break;
-        case 3:
-            studentLogin(username, password);
-            break;
-        default:
-            cout << "µÇÂ¼Ê§°Ü£¡" << endl;
-    }
-}
-
-void LoginUtils::teacherLogin(string username, string password) {
-
     for (auto &s: teachers) {
         if (s.getId() == username && s.checkPassword(password)) {
-            //TeacherMenu(username);
-            return;
+            TeacherMenu t(username);
+            return username;
         }
     }
     cout << "ÃÜÂë´íÎó£¡" << endl;
 
 }
 
-void LoginUtils::adminLogin(string username, string password) {
+string LoginUtils::adminLogin() {
+    string username, password;
+    cout << "ÊäÈëÓÃ»§Ãû£º";
+    cin >> username;
+    cout << "ÊäÈëÃÜÂë£º";
+    password = PassRead();
     ifstream in("admin.txt");
     string uname, upass;
     in >> uname >> upass;
     if (username == uname && password == upass) {
-        AdminMenu a;
-        a.menu();
+        return username;
     } else
-        cout << "ÃÜÂë´íÎó£¡" << endl;
+        return "";
     in.close();
 }
 
-void LoginUtils::studentLogin(string username, string password) {
+string LoginUtils::studentLogin() {
+    string username, password;
+    cout << "ÊäÈëÓÃ»§Ãû£º";
+    cin >> username;
+    cout << "ÊäÈëÃÜÂë£º";
+    password = PassRead();
     for (auto &s: students) {
         if (s.getId() == username && s.checkPassword(password)) {
-            //StudentMenu(username);
-            return;
+            return username;
         }
     }
-    cout << "ÃÜÂë´íÎó£¡" << endl;
+    return "";
 }
 
 unsigned LoginUtils::selectLoginType() {
+
+}
+
+void LoginUtils::updatePassword() {
     cout << "Ñ¡ÔñÉí·Ý£º" << endl;
     cout << "1.¹ÜÀíÔ±" << endl;
     cout << "2.½ÌÊ¦" << endl;
@@ -72,5 +115,48 @@ unsigned LoginUtils::selectLoginType() {
     cout << "ÇëÊäÈë£º";
     int op;
     cin >> op;
-    return op;
+    switch (op) {
+        case 1: {
+            string result = adminLogin();
+            if (result.length()) {
+                string username, password;
+                cout << "ÇëÊäÈëÐÂÓÃ»§Ãû£º";
+                cin >> username;
+                cout << "ÇëÊäÈëÐÂÃÜÂë£º";
+                password = PassRead();
+                ofstream file("admin.txt");
+                file << username << '\t' << password;
+                file.close();
+                cout << "ÐÞ¸Ä³É¹¦£¡" << endl;
+                return;
+            } else { cout << "ÃÜÂë´íÎó£¡" << endl; }
+        }
+            break;
+        case 2: {
+            string result = teacherLogin();
+            if (result.length()) {
+
+                cout << "ÇëÊäÈëÐÂÃÜÂë£º";
+                string password = PassRead();
+                teacher_link.updatePassword(result, password);
+                cout << "ÐÞ¸Ä³É¹¦£¡" << endl;
+                return;
+            } else { cout << "ÃÜÂë´íÎó£¡" << endl; }
+        }
+            break;
+        case 3: {
+            string result = studentLogin();
+            if (result.length()) {
+                cout << "ÇëÊäÈëÐÂÃÜÂë£º";
+                string password = PassRead();
+                student_link.updatePassword(result, password);
+                cout << "ÐÞ¸Ä³É¹¦£¡" << endl;
+                return;
+            } else { cout << "ÃÜÂë´íÎó£¡" << endl; }
+        }
+            break;
+        default:
+            cout << "µÇÂ¼Ê§°Ü£¡" << endl;
+    }
+
 }

@@ -20,6 +20,8 @@ public:
     vector<int> getNumByTeacherId(string id);
 
     string getTeacherId(string id);
+
+    void addCurrent(string id);
 };
 
 

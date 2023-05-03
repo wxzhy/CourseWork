@@ -17,11 +17,13 @@ public:
 
     unsigned selectLoginType();
 
-    void adminLogin(string username, string password);
+    string adminLogin();
 
-    void teacherLogin(string username, string password);
+    string teacherLogin();
 
-    void studentLogin(string username, string password);
+    string studentLogin();
+
+    void updatePassword();
 };
 
 

@@ -19,6 +19,8 @@ public:
     }
     void update(string id, string name, string sex, string prof, int grade);
 
+    void updatePassword(string id, string password);
+
 };
 
 

@@ -50,7 +50,7 @@ void TeacherMenu::AddScore() {
 }
 
 void TeacherMenu::menu() {
-    cout << "姓名： " << teacher_link.getNameById(id);
+    cout << "姓名： " << teacher_link.getNameById(id) << endl;
     getCourses();
     if (courseNums.empty()) {
         cout << "无课程！" << endl;

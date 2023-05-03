@@ -76,6 +76,7 @@ void StudentMenu::selectCourse() {
                 return;
             } else {
                 score_link.add(id, str, 0.0);
+                course_link.addCurrent(str);
                 cout << "Ñ¡¿Î³É¹¦£¡" << endl;
                 return;
             }

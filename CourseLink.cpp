@@ -40,3 +40,13 @@ string CourseLink::getTeacherId(string id) {
     }
     return "";
 }
+
+void CourseLink::addCurrent(string id) {
+    for (auto &it: link) {
+        if (it.getId() == id) {
+            it.addCurrent();
+            return;
+        }
+    }
+
+}

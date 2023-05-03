@@ -32,6 +32,8 @@ public:
     void deleteCourse();
 
     void editCourse();
+
+    void findById();
 };
 
 
