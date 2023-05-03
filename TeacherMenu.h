@@ -30,6 +30,10 @@ public:
     void changePassword();
 
     void AddScore();
+
+    void editScore();
+
+    void calculate();
 };
 
 

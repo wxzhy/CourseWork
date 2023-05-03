@@ -19,8 +19,7 @@ void TeacherMenu::courseMenu(int courseNum) {
     cout << "1.查看学生成绩" << endl;
     cout << "2.录入学生成绩" << endl;
     cout << "3.修改学生成绩" << endl;
-    cout << "4.删除学生成绩" << endl;
-    cout << "5.统计信息" << endl;
+    cout << "4.统计信息" << endl;
     cout << "0.退出" << endl;
     int op;
     cin>>op;
@@ -31,6 +30,12 @@ void TeacherMenu::courseMenu(int courseNum) {
         case 2:
             addScore();
             break;
+        case 3:
+            editScore();
+            break;
+            case 4:
+                calculate();
+                break;
     }
 }
 
@@ -109,4 +114,19 @@ void TeacherMenu::addScore() {
         cin>>score;
         scores[studentNums[i]].setValue(score);
     }
+}
+
+void TeacherMenu::editScore() {
+
+}
+
+void TeacherMenu::calculate() {
+    float total=0.0;
+
+    for(auto &i: studentNums) {
+        total+=scores[studentNums[i]].getValue();
+    }
+    total/=studentNums.size();
+    cout<<"平均分："<<setprecision(1)<<total<<endl;
+
 }
