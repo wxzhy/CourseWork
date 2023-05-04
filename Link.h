@@ -45,7 +45,7 @@ void Link<T>::erase(T node) {
 
 template<class T>
 bool Link<T>::ifExist(string id) {
-    for (auto t: link) {
+    for (auto &t: link) {
         if (t.getId() == id) {
             return true;
         }
@@ -148,6 +148,8 @@ void Link<T>::del(string id) {
 
 template<class T>
 void Link<T>::add(T node) {
+    if (ifExist(node.getId()))
+        return;
     link.push_back(node);
 }
 

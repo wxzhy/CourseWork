@@ -13,6 +13,7 @@ void StudentManager::menu() {
         cout << "4.删除学生" << endl;
         cout << "5.按学号查询" << endl;
         cout << "6.按姓名查询" << endl;
+        cout << "7.从文件添加" << endl;
         cout << "0.返回" << endl;
         cout << "请输入：";
         int op;
@@ -35,6 +36,9 @@ void StudentManager::menu() {
                 break;
             case 6:
                 findByName();
+                break;
+            case 7:
+                addFromFile();
                 break;
             case 0:
                 return;
@@ -176,8 +180,9 @@ void StudentManager::del() {
     if (str == "Yes") {
         student_link.del(students[num].getId());
         score_link.deleteByStudentId(students[num].getId());
+        cout << "删除成功" << endl;
     }
-    cout << "删除成功";
+
 }
 
 void StudentManager::findById() {
@@ -226,5 +231,13 @@ void StudentManager::print(string id) {
         }
     }
     print("未找到");
+
+}
+
+void StudentManager::addFromFile() {
+    cout << "输入文件名：";
+    string filename;
+    cin >> filename;
+    student_link.load(filename);
 
 }

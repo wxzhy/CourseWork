@@ -29,6 +29,8 @@ public:
     void del();
 
     void queryByCourse();
+
+    void addFromFile();
 };
 
 

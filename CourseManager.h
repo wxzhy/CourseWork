@@ -32,6 +32,8 @@ public:
     void editCourse();
 
     void findById();
+
+    void addFromFile();
 };
 
 

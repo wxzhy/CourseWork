@@ -78,3 +78,17 @@ void ScoreLink::sortByCourseId() {
     sort(link.begin(), link.end(),
          [](Score &s1, Score &s2) { return s1.getCourseId() < s2.getCourseId(); });
 }
+
+bool ScoreLink::ifExist(string studentId, string courseId) {
+    for (auto &s: link)
+        if (s.getStudentId() == studentId && s.getCourseId() == courseId)
+            return true;
+    return false;
+}
+
+void ScoreLink::add(Score s) {
+    if (ifExist(s.getStudentId(), s.getCourseId()))
+        return;
+    else
+        link.push_back(s);
+}

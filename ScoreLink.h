@@ -23,6 +23,10 @@ public:
 
     void deleteByStudentId(string studentId);
 
+    bool ifExist(string studentId, string courseId);
+
+    void add(Score s);
+
 public:
     ScoreLink() {}
 

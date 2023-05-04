@@ -14,6 +14,7 @@ void CourseManager::menu() {
         cout << "4.修改课程" << endl;
         cout << "5.按编号查询" << endl;
         cout << "6.模糊查询" << endl;
+        cout << "7.从文件添加" << endl;
         cout << "0.退出" << endl;
         cout << "请输入：";
 
@@ -37,6 +38,9 @@ void CourseManager::menu() {
                 break;
             case 6:
                 search();
+                break;
+            case 7:
+                addFromFile();
                 break;
             case 0:
                 return;
@@ -123,9 +127,10 @@ void CourseManager::deleteCourse() {
     cout << "确认删除（Yes/No）：";
     string str;
     cin >> str;
-    if (str == "Yes")
+    if (str == "Yes") {
         course_link.del(teachers[num].getId());
-    cout << "删除成功";
+        cout << "删除成功" << endl;
+    }
 
 }
 
@@ -197,6 +202,13 @@ void CourseManager::search() {
     }
     print(c);
 
+}
+
+void CourseManager::addFromFile() {
+    cout << "输入文件名：";
+    string filename;
+    cin >> filename;
+    course_link.load(filename);
 }
 
 

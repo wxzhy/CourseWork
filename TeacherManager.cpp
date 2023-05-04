@@ -12,6 +12,7 @@ void TeacherManager::menu() {
         cout << "4.删除教师" << endl;
         cout << "5.按工号查询" << endl;
         cout << "6.按姓名查询" << endl;
+        cout << "7.从文件添加" << endl;
         cout << "0.返回" << endl;
         cout << "请输入：";
         int op;
@@ -34,6 +35,9 @@ void TeacherManager::menu() {
                 break;
             case 6:
                 findByName();
+                break;
+            case 7:
+                loadFromFile();
                 break;
             case 0:
                 return;
@@ -166,9 +170,10 @@ void TeacherManager::del() {
     cout << "确认删除（Yes/No）：";
     string str;
     cin >> str;
-    if (str == "Yes")
+    if (str == "Yes") {
         teacher_link.del(teachers[num].getId());
-    cout << "删除成功";
+        cout << "删除成功" << endl;
+    }
 }
 
 void TeacherManager::findById() {
@@ -217,5 +222,13 @@ void TeacherManager::print(string id) {
         }
     }
     print("未找到");
+
+}
+
+void TeacherManager::loadFromFile() {
+    cout << "输入文件名：";
+    string filename;
+    cin >> filename;
+    teacher_link.load(filename);
 
 }

@@ -12,6 +12,7 @@ void ScoreManager::menu() {
         cout << "3.按课程查询" << endl;
         cout << "4.按分数排序" << endl;
         cout << "5.按学号排序" << endl;
+        cout << "6.从文件添加" << endl;
         cout << "0.退出" << endl;
         cout << "请输入：";
         int op;
@@ -37,6 +38,9 @@ void ScoreManager::menu() {
                 cout << "排序成功" << endl;
                 break;
             }
+            case 6:
+                addFromFile();
+                break;
             default:
                 cout << "输入错误！" << endl;
         }
@@ -107,4 +111,11 @@ void ScoreManager::queryByCourse() {
             sc.push_back(s);
     }
     print(sc);
+}
+
+void ScoreManager::addFromFile() {
+    cout << "输入文件名：";
+    string filename;
+    cin >> filename;
+    score_link.load(filename);
 }

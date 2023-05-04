@@ -25,6 +25,8 @@ public:
     void findByName();
 
     void findById();
+
+    void addFromFile();
 };
 
 

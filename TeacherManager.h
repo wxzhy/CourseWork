@@ -19,16 +19,22 @@ public:
     void menu();
     void print(Teacher s);
     void print(string id);
+
     void displayAll();
+
     void add();
+
     void edit();
 
     void del();
+
     void findByName();
 
     void findById();
 
     void print(vector<Teacher> &s);
+
+    void loadFromFile();
 };
 
 
