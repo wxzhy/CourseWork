@@ -74,15 +74,36 @@ string LoginUtils::teacherLogin() {
 }
 
 string LoginUtils::adminLogin() {
+    ifstream in("admin.txt");
+    string uname, pass;
+    if (in.fail()) {
+        in.close();
+        cout << "打开admin.txt失败！" << endl;
+        cout << "是否创建(Yes/No):";
+        string str;
+        cin >> str;
+        if (str == "Yes") {
+            ofstream out("admin.txt");
+            cout << "输入用户名：";
+            cin >> uname;
+            cout << "输入密码：";
+            pass = PassRead();
+            out << uname << '\t' << pass;
+            out.close();
+            cout << "创建成功" << endl;
+            return uname;
+        } else
+            exit(1);
+    } else {
+        in >> uname >> pass;
+    }
+    in >> uname >> pass;
     string username, password;
     cout << "输入用户名：";
     cin >> username;
     cout << "输入密码：";
     password = PassRead();
-    ifstream in("admin.txt");
-    string uname, upass;
-    in >> uname >> upass;
-    if (username == uname && password == upass) {
+    if (username == uname && password == pass) {
         return username;
     } else
         return "";

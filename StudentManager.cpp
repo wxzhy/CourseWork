@@ -90,6 +90,7 @@ void StudentManager::add() {
         return;
     }
     stu.setId(str);
+    stu.setPassword(str);
     cout << "ÊäÈëĞÕÃû£º";
     cin >> str;
     stu.setName(str);

@@ -75,7 +75,7 @@ void TeacherManager::print(vector<Teacher> &s) {
 
 
 void TeacherManager::add() {
-    Teacher stu;
+    Teacher teacher;
     string str;
     cout << "输入工号：";
     cin >> str;
@@ -83,20 +83,21 @@ void TeacherManager::add() {
         cout << "该工号已存在" << endl;
         return;
     }
-    stu.setId(str);
+    teacher.setId(str);
+    teacher.setPassword(str);
     cout << "输入姓名：";
     cin >> str;
-    stu.setName(str);
+    teacher.setName(str);
     cout << "输入性别：";
     cin >> str;
-    stu.setSex(str);
+    teacher.setSex(str);
     cout << "输入部门：";
     cin >> str;
-    stu.setDepart(str);
+    teacher.setDepart(str);
     cout << "输入电话：";
     cin >> str;
-    stu.setPhone(str);
-    teachers.push_back(stu);
+    teacher.setPhone(str);
+    teachers.push_back(teacher);
     teacher_link.sortById();
 
 }

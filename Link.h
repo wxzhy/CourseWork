@@ -90,7 +90,7 @@ template<class T>
 void Link<T>::save(string filename) {
     ofstream file(filename);
     if (file.fail())
-        cout << filename <<"写入失败"<<endl;
+        cout << filename << "写入失败" << endl;
     for (auto &n: link)
         file << n;
     file.close();
@@ -99,8 +99,20 @@ void Link<T>::save(string filename) {
 template<class T>
 void Link<T>::load(string filename) {
     ifstream file(filename);
-    if (file.fail())
+    if (file.fail()) {
         cout << filename << "打开失败" << endl;
+        cout << "是否创建" << filename << "(Yes/No):";
+        string str;
+        cin >> str;
+        if (str == "Yes") {
+            ofstream out("filename");
+            out.close();
+            cout<<"创建成功"<<endl;
+            file.close();
+            file.open(filename);
+        } else
+            exit(1);
+    }
     T node;
     file >> node;
     while (!file.eof()) {
@@ -155,9 +167,9 @@ void Link<T>::add(T node) {
 
 template<class T>
 int Link<T>::getNumById(string id) {
-    for(auto it=link.begin(); it!=link.end();++it)
-        if(it->getId()==id)
-            return it-link.begin();
+    for (auto it = link.begin(); it != link.end(); ++it)
+        if (it->getId() == id)
+            return it - link.begin();
     return -1;
 }
 
