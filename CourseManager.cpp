@@ -2,20 +2,24 @@
 // Created by Admin on 2023/5/3.
 //
 
-#include <iomanip>
+
+
 #include "CourseManager.h"
+
 
 void CourseManager::menu() {
     while (true) {
-        cout << "课程管理" << endl;
-        cout << "1.查看全部课程" << endl;
-        cout << "2.添加课程" << endl;
-        cout << "3.删除课程" << endl;
-        cout << "4.修改课程" << endl;
-        cout << "5.按编号查询" << endl;
-        cout << "6.模糊查询" << endl;
-        cout << "7.从文件添加" << endl;
-        cout << "0.退出" << endl;
+        //cout << "课程管理" << endl;
+        Display::Head(">>管理模块>>课程管理");
+        cout << "     1.查看全部课程" << endl;
+        cout << "     2.添加课程" << endl;
+        cout << "     3.删除课程" << endl;
+        cout << "     4.修改课程" << endl;
+        cout << "     5.按编号查询" << endl;
+        cout << "     6.模糊查询" << endl;
+        cout << "     7.从文件添加" << endl;
+        cout << "     0.返回上级菜单" << endl;
+        Display::Tail();
         cout << "请输入：";
 
         int op;
@@ -82,11 +86,26 @@ void CourseManager::showCourse() {
 }
 
 void CourseManager::print(Course c) {
-    cout << "课程编号：" << c.getId() << endl;
-    cout << "课程名称：" << c.getName() << endl;
-    cout << "教师姓名：" << teacher_link.getNameById(c.getTeacherId()) << endl;
-    cout << "当前人数：" << c.getCurrent() << endl;
-    cout << "最大人数：" << c.getMax() << endl;
+    //cout << "课程编号：" << c.getId() << endl;
+    //cout << "课程名称：" << c.getName() << endl;
+    //cout << "教师姓名：" << teacher_link.getNameById(c.getTeacherId()) << endl;
+    //cout << "当前人数：" << c.getCurrent() << endl;
+    //cout << "最大人数：" << c.getMax() << endl;
+    cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
+    cout << "| " << setw(10) << "课程编号" << " | " << setw(15) << "课程名称" << " | "
+         << setw(15) << "授课教师" << " | " << setw(8) << "当前人数" << " | "
+         << setw(8) << "最大人数" << " |" << endl;
+    cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
+
+    {
+        cout << "| " << left << setw(10) << c.getId() << " | " << left << setw(15) << c.getName() << " | " << left
+             << setw(15)
+             << teacher_link.getNameById(c.getTeacherId()) << " | " << right << setw(8) << c.getCurrent() << " | "
+             << right << setw(8) << c.getMax() << " |" << endl;
+    }
+
+    cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
+    cout << "共有" << 1 << "条结果" << endl;
 }
 
 void CourseManager::print(vector<Course> c) {
@@ -135,7 +154,7 @@ void CourseManager::deleteCourse() {
 }
 
 void CourseManager::editCourse() {
-    search();
+    //search();
     cout << "输入要修改的编号：";
     string id;
     cin >> id;
@@ -144,13 +163,17 @@ void CourseManager::editCourse() {
         cout << "未找到" << endl;
         return;
     }
-    cout << "原信息：";
+    //cout << "原信息：";
+    Display::Message("原信息");
     print(courses[num]);
-    cout << "1.修改名称" << endl;
-    cout << "2.修改教师" << endl;
-    cout << "3.修改最大人数" << endl;
+    Display::Head(">>管理模块>>课程管理>>修改课程");
+    cout << "     1.修改名称" << endl;
+    cout << "     2.修改教师" << endl;
+    cout << "     3.修改最大人数" << endl;
+    Display::Tail();
     cout << "请输入：";
     int op;
+    cin >> op;
     switch (op) {
         case 1: {
             cout << "输入名称：";

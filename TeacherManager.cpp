@@ -6,14 +6,16 @@
 
 void TeacherManager::menu() {
     while (true) {
-        cout << "1.查看全部教师" << endl;
-        cout << "2.添加教师" << endl;
-        cout << "3.修改教师" << endl;
-        cout << "4.删除教师" << endl;
-        cout << "5.按工号查询" << endl;
-        cout << "6.按姓名查询" << endl;
-        cout << "7.从文件添加" << endl;
-        cout << "0.返回" << endl;
+        Display::Head(">>管理模块>>教师管理");
+        cout << "     1.查看全部教师" << endl;
+        cout << "     2.添加教师" << endl;
+        cout << "     3.修改教师" << endl;
+        cout << "     4.删除教师" << endl;
+        cout << "     5.按工号查询" << endl;
+        cout << "     6.按姓名查询" << endl;
+        cout << "     7.从文件添加" << endl;
+        cout << "     0.返回上级菜单" << endl;
+        Display::Tail();
         cout << "请输入：";
         int op;
         cin >> op;
@@ -75,7 +77,7 @@ void TeacherManager::print(vector<Teacher> &s) {
 
 
 void TeacherManager::add() {
-    Teacher stu;
+    Teacher teacher;
     string str;
     cout << "输入工号：";
     cin >> str;
@@ -83,40 +85,45 @@ void TeacherManager::add() {
         cout << "该工号已存在" << endl;
         return;
     }
-    stu.setId(str);
+    teacher.setId(str);
+    teacher.setPassword(str);
     cout << "输入姓名：";
     cin >> str;
-    stu.setName(str);
+    teacher.setName(str);
     cout << "输入性别：";
     cin >> str;
-    stu.setSex(str);
+    teacher.setSex(str);
     cout << "输入部门：";
     cin >> str;
-    stu.setDepart(str);
+    teacher.setDepart(str);
     cout << "输入电话：";
     cin >> str;
-    stu.setPhone(str);
-    teachers.push_back(stu);
+    teacher.setPhone(str);
+    teachers.push_back(teacher);
     teacher_link.sortById();
 
 }
 
 void TeacherManager::edit() {
-    findByName();
+    //findByName();
     cout << "输入要修改的工号：";
     string id;
     cin >> id;
     int num = teacher_link.getNumById(id);
     if (num == -1) {
+        Display::Result();
         cout << "未找到" << endl;
         return;
     }
-    cout << "原信息：";
+    //cout << "原信息：";
+    Display::Message("原信息");
     print(teachers[num]);
-    cout << "1.修改姓名" << endl;
-    cout << "2.修改性别" << endl;
-    cout << "3.修改专业" << endl;
-    cout << "4.修改年级" << endl;
+    Display::Head(">>管理模块>>教师管理>>修改教师");
+    cout << "     1.修改姓名" << endl;
+    cout << "     2.修改性别" << endl;
+    cout << "     3.修改专业" << endl;
+    cout << "     4.修改年级" << endl;
+    Display::Tail();
     int op;
     cout << "请输入：";
     cin >> op;
@@ -182,6 +189,7 @@ void TeacherManager::findById() {
     cin >> id;
     for (auto &s: teachers) {
         if (s.getId() == id) {
+            Display::Message();
             print(s);
             break;
         }
@@ -191,14 +199,22 @@ void TeacherManager::findById() {
 }
 
 void TeacherManager::print(Teacher s) {
-    cout << "教师信息：" << endl;
-    cout << left << setw(10) << "工号：" << s.getId() << endl;
-    cout << left << setw(10) << "姓名：" << s.getName() << endl;
-    cout << left << setw(10) << "性别：" << s.getSex() << endl;
-    cout << left << setw(10) << "专业：" << s.getDepart() << endl;
-    cout << left << setw(10) << "年级：" << s.getPhone() << endl;
-    Line();
-
+    //cout << "教师信息：" << endl;
+    //cout << left << setw(10) << "工号：" << s.getId() << endl;
+    //cout << left << setw(10) << "姓名：" << s.getName() << endl;
+    //cout << left << setw(10) << "性别：" << s.getSex() << endl;
+    //cout << left << setw(10) << "专业：" << s.getDepart() << endl;
+    //cout << left << setw(10) << "年级：" << s.getPhone() << endl;
+    //Line();
+    cout << "+--------------+--------------+--------------+------------------------+" << endl;
+    cout << "|     工号     |     姓名     |     部门     |          电话          |" << endl;
+    cout << "+--------------+--------------+--------------+------------------------+" << endl;
+    {
+        cout << "| " << setw(12) << s.getId() << " | " << setw(12) << s.getName() << " | " << setw(12) << s.getDepart()
+             << " | " << setw(22) << s.getPhone() << " |" << endl;
+    }
+    cout << "+--------------+--------------+--------------+------------------------+" << endl;
+    cout << "共有" << 1 << "条结果" << endl;
 
 }
 
@@ -211,6 +227,7 @@ void TeacherManager::findByName() {
         if (s.getName().find(name) != -1)
             stu.push_back(s);
     }
+    Display::Message();
     print(stu);
 }
 
@@ -221,6 +238,7 @@ void TeacherManager::print(string id) {
             return;
         }
     }
+    Display::Result();
     print("未找到");
 
 }

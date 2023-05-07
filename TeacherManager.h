@@ -14,10 +14,13 @@
 
 using namespace std;
 
-class TeacherManager:public Database,public Display {
+//class TeacherManager:public Database,public Display {
+class TeacherManager : public Database {
 public:
     void menu();
+
     void print(Teacher s);
+
     void print(string id);
 
     void displayAll();

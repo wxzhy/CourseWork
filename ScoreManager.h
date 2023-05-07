@@ -12,7 +12,8 @@
 
 using namespace std;
 
-class ScoreManager : public Database, public Display {
+//class ScoreManager : public Database, public Display {
+class ScoreManager : public Database {
 public:
     void menu();
 

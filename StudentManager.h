@@ -9,16 +9,21 @@
 #include "Display.h"
 #include <iomanip>
 
-class StudentManager:public Database,public Display {
+//class StudentManager:public Database,public Display {
+class StudentManager : public Database {
 public:
     void menu();
+
     void print(Student s);
+
     void print(string id);
 
     void print(vector<Student> &s);
 
     void displayAll();
+
     void add();
+
     void edit();
 
     void del();

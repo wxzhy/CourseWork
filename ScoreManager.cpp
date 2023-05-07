@@ -7,13 +7,15 @@
 
 void ScoreManager::menu() {
     while (true) {
-        cout << "1.查看所有成绩" << endl;
-        cout << "2.删除成绩" << endl;
-        cout << "3.按课程查询" << endl;
-        cout << "4.按分数排序" << endl;
-        cout << "5.按学号排序" << endl;
-        cout << "6.从文件添加" << endl;
-        cout << "0.退出" << endl;
+        Display::Head(">>管理模块>>成绩管理");
+        cout << "     1.查看所有成绩" << endl;
+        cout << "     2.删除成绩" << endl;
+        cout << "     3.按课程查询" << endl;
+        cout << "     4.按分数排序" << endl;
+        cout << "     5.按学号排序" << endl;
+        cout << "     6.从文件添加" << endl;
+        cout << "     0.返回上级菜单" << endl;
+        Display::Tail();
         cout << "请输入：";
         int op;
         cin >> op;
@@ -30,11 +32,13 @@ void ScoreManager::menu() {
                 queryByCourse();
             case 4: {
                 score_link.sortByValue();
+                Display::Result();
                 cout << "排序成功" << endl;
                 break;
             }
             case 5: {
                 score_link.sortByStudentId();
+                Display::Result();
                 cout << "排序成功" << endl;
                 break;
             }
@@ -42,6 +46,7 @@ void ScoreManager::menu() {
                 addFromFile();
                 break;
             default:
+                Display::Result();
                 cout << "输入错误！" << endl;
         }
     }

@@ -10,10 +10,12 @@
 #include "Display.h"
 
 using namespace std;
-class TeacherMenu : public Database, public Display {
+//class TeacherMenu : public Database, public Display {
+class TeacherMenu : public Database {
     string id;
     vector<int> courseNums;//存储该教师的课程
     vector<int> studentNums;//存储该课程的学生
+    int choiced = 0;  //界面选中的课程 -1:退回上级菜单；0：待选课程；其他：已经选中课程
 public:
     TeacherMenu(string id) : id(id) {}
 
@@ -28,7 +30,7 @@ public:
 
     void showCourse();
 
-    void showScore();
+    void showScore(int courseNum);
 
     void changePassword();
 

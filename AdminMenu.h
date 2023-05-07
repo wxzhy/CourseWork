@@ -11,7 +11,8 @@
 
 using namespace std;
 
-class AdminMenu : public Database, public Display {
+//class AdminMenu : public Database, public Display {
+class AdminMenu : public Database {
 
 public:
     void menu();

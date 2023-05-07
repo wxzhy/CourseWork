@@ -11,7 +11,8 @@
 
 using namespace std;
 
-class LoginUtils : public Database, public Display {
+//class LoginUtils : public Database, public Display {
+class LoginUtils : public Database {
 public:
     void login();
 

@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Database.h"
+#include "Display.h"
 
 using namespace std;
 

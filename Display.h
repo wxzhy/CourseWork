@@ -16,15 +16,28 @@ class Display {
 public:
     void start();
 
-    void Head();
+    static void Head(); //菜单框头
 
-    void Head(string s);
+    static void Head(string s);
 
-    void Line();
+    static void Head(string s1, string s2);
 
-    void boldLine();
+    static void Tail();//菜单框尾
 
-    string PassRead();
+    static void Result();//执行结果分割线
+
+    static void Result(string s);//执行结果
+
+
+    static void Message();//信息提示分割线
+
+    static void Message(string s);//信息提示
+
+    static void Line();
+
+    static void boldLine();
+
+    static string PassRead();
 };
 
 

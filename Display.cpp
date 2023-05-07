@@ -1,14 +1,14 @@
 //
 // Created by Admin on 2023/5/2.
 //
-
+#include "Display.h"
 #include "Database.h"
 #include "LoginUtils.h"
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
 #include <string>
-#include "Display.h"
+
 
 using namespace std;
 
@@ -24,22 +24,61 @@ void Display::start() {
 }
 
 void Display::Head() {
+    cout << "                                                " << endl;
     cout << right << setw(5) << "学生信息管理系统" << endl;
 
 }
 
 void Display::Line() {
-    cout << "--------------------------------" << endl;
+    cout << "-------------------------------------------------" << endl;
 }
 
 void Display::boldLine() {
-    cout << "================================" << endl;
+    cout << "==================================================" << endl;
+
+}
+
+void Display::Tail() {
+    cout << "                                                " << endl;
+    boldLine();
+
+}
+
+void Display::Result() {
+    Result("");
+}
+
+void Display::Result(string s) {
+    cout << "-----------执行结果---------------" << endl;
+    if (!s.compare("")) {
+        cout << s << endl;
+        cout << "                                                " << endl;
+    }
+}
+
+void Display::Message() {
+    cout << "-----------信息提示---------------" << endl;
+}
+
+void Display::Message(string s) {
+    cout << "-----------" << s << "---------------" << endl;
 
 }
 
 void Display::Head(string s) {
-    cout << right << setw(20) << "学生信息管理系统" << endl;
-    cout << right << setw(20) << s << endl;
+    Head(s, "");
+}
+
+void Display::Head(string s1, string s2) {
+    cout << "                                                " << endl;
+    boldLine();
+    cout << s1 << endl;
+    boldLine();
+    cout << "                                                " << endl;
+    cout << "   请选择" << s2 << "：                       " << endl;
+    cout << "                                                " << endl;
+    //cout << right << setw(20) << "学生信息管理系统" << endl;
+    //cout << right << setw(20) << s << endl;
 
 }
 

@@ -7,14 +7,16 @@
 
 void StudentManager::menu() {
     while (true) {
-        cout << "1.查看全部学生" << endl;
-        cout << "2.添加学生" << endl;
-        cout << "3.修改学生" << endl;
-        cout << "4.删除学生" << endl;
-        cout << "5.按学号查询" << endl;
-        cout << "6.按姓名查询" << endl;
-        cout << "7.从文件添加" << endl;
-        cout << "0.返回" << endl;
+        Display::Head(">>管理模块>>学生管理");
+        cout << "     1.查看全部学生" << endl;
+        cout << "     2.添加学生" << endl;
+        cout << "     3.修改学生" << endl;
+        cout << "     4.删除学生" << endl;
+        cout << "     5.按学号查询" << endl;
+        cout << "     6.按姓名查询" << endl;
+        cout << "     7.从文件添加" << endl;
+        cout << "     0.返回上级菜单" << endl;
+        Display::Tail();
         cout << "请输入：";
         int op;
         cin >> op;
@@ -43,6 +45,7 @@ void StudentManager::menu() {
             case 0:
                 return;
             default:
+                Display::Result();
                 cout << "输入错误！" << endl;
 
         }
@@ -56,6 +59,7 @@ void StudentManager::displayAll() {
 
 void StudentManager::print(vector<Student> &s) {
     if (s.empty()) {
+        Display::Result();
         cout << "未找到" << endl;
         return;
     }
@@ -86,10 +90,12 @@ void StudentManager::add() {
     cout << "输入学号：";
     cin >> str;
     if (student_link.ifExist(str)) {
+        Display::Result();
         cout << "该学号已存在" << endl;
         return;
     }
     stu.setId(str);
+    stu.setPassword(str);
     cout << "输入姓名：";
     cin >> str;
     stu.setName(str);
@@ -109,7 +115,7 @@ void StudentManager::add() {
 }
 
 void StudentManager::edit() {
-    findByName();
+    //findByName();
     cout << "输入要修改的学号：";
     string id;
     cin >> id;
@@ -118,12 +124,15 @@ void StudentManager::edit() {
         cout << "未找到" << endl;
         return;
     }
-    cout << "原信息：";
+    //cout << "原信息：";
+    Display::Message("原信息");
     print(students[num]);
-    cout << "1.修改姓名" << endl;
-    cout << "2.修改性别" << endl;
-    cout << "3.修改专业" << endl;
-    cout << "4.修改年级" << endl;
+    Display::Head(">>管理模块>>学生管理>>修改学生");
+    cout << "     1.修改姓名" << endl;
+    cout << "     2.修改性别" << endl;
+    cout << "     3.修改专业" << endl;
+    cout << "     4.修改年级" << endl;
+    Display::Tail();
     int op;
     cout << "请输入：";
     cin >> op;
@@ -147,7 +156,7 @@ void StudentManager::edit() {
             cout << "输入专业：";
             string str;
             cin >> str;
-            students[num].setName(str);
+            students[num].setProf(str);
             break;
         }
         case 4: {
@@ -158,6 +167,7 @@ void StudentManager::edit() {
             break;
         }
         default:
+            Display::Result();
             cout << "输入错误！" << endl;
     }
 
@@ -169,17 +179,21 @@ void StudentManager::del() {
     cin >> id;
     int num = student_link.getNumById(id);
     if (num == -1) {
+        Display::Result();
         cout << "未找到" << endl;
         return;
     }
-    cout << "原信息：";
+    //cout << "原信息：";
+    Display::Message("原信息");
     print(students[num]);
     cout << "确认删除（Yes/No）：";
     string str;
     cin >> str;
     if (str == "Yes") {
         student_link.del(students[num].getId());
-        score_link.deleteByStudentId(students[num].getId());
+        //会报错，待查
+        //score_link.deleteByStudentId(students[num].getId());
+        Display::Result();
         cout << "删除成功" << endl;
     }
 
@@ -200,14 +214,26 @@ void StudentManager::findById() {
 }
 
 void StudentManager::print(Student s) {
-    cout << "学生信息：" << endl;
-    cout << left << setw(10) << "学号：" << s.getId() << endl;
-    cout << left << setw(10) << "姓名：" << s.getName() << endl;
-    cout << left << setw(10) << "性别：" << s.getSex() << endl;
-    cout << left << setw(10) << "专业：" << s.getProf() << endl;
-    cout << left << setw(10) << "年级：" << s.getGrade() << endl;
-    Line();
+    //cout << "学生信息：" << endl;
+    //cout << left << setw(10) << "学号：" << s.getId() << endl;
+    //cout << left << setw(10) << "姓名：" << s.getName() << endl;
+    //cout << left << setw(10) << "性别：" << s.getSex() << endl;
+    //cout << left << setw(10) << "专业：" << s.getProf() << endl;
+    //cout << left << setw(10) << "年级：" << s.getGrade() << endl;
+    //Line();
+    cout << "+------------+------------+------------+--------+" << endl;
+    cout << "| " << setw(10) << "学号" << " | " << setw(10) << "姓名" << " | "
+         << setw(10) << "专业" << " | " << setw(6) << "年级" << " |" << endl;
+    cout << "+------------+------------+------------+--------+" << endl;
+    {
 
+        cout << "| " << left << setw(10) << s.getId() << " | " << left << setw(10) << s.getName() << " | " << left
+             << setw(10)
+             << s.getProf() << " | " << left << setw(6) << s.getGrade() << " |" << endl;
+    }
+
+    cout << "+------------+------------+------------+--------+" << endl;
+    cout << "共有" << 1 << "条结果" << endl;
 
 }
 
