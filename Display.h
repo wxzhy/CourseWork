@@ -16,9 +16,15 @@ class Display {
 public:
     void start();
 
-    void Head();
-
+    void Head(); //菜单框头
+    
     void Head(string s);
+
+    void Head(string s1, string s2);
+
+    void Tail();//菜单框尾
+
+    static void Result(string s);//执行结果
 
     void Line();
 

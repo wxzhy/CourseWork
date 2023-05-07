@@ -10,12 +10,13 @@
 
 void AdminMenu::menu() {
     while (true) {
-        Head("管理模块");
-        cout << "1.学生管理" << endl;
-        cout << "2.教师管理" << endl;
-        cout << "3.课程管理" << endl;
-        cout << "4.成绩管理" << endl;
-        cout << "0.退出" << endl;
+        Head(">>管理模块");
+        cout << "     1.学生管理" << endl;
+        cout << "     2.教师管理" << endl;
+        cout << "     3.课程管理" << endl;
+        cout << "     4.成绩管理" << endl;
+        cout << "     0.返回上级菜单" << endl;
+        Tail();
         cout << "请输入：";
         int op;
         cin >> op;

@@ -22,7 +22,7 @@ void TeacherMenu::courseMenu(int courseNum) {
     cout << "4.统计信息" << endl;
     cout << "5.按成绩排序" << endl;
     cout << "6.按学号排序" << endl;
-    cout << "0.退出" << endl;
+    cout << "0.返回上级菜单" << endl;
     int op;
     cin >> op;
     switch (op) {

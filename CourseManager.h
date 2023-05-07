@@ -9,11 +9,13 @@
 #include <vector>
 #include "Course.h"
 #include "Database.h"
+#include "Display.h"
+#include <iomanip>
 
 using namespace std;
 
-
-class CourseManager : public Database {
+//class CourseManager : public Database {
+class CourseManager : public Database, public Display {
 public:
     void menu();
 
