@@ -12,7 +12,7 @@ void StudentMenu::menu() {
         cout << "2.选课" << endl;
         cout << "3.课程查询" << endl;
         cout << "4.课程搜索" << endl;
-        cout << "0.返回" << endl;
+        cout << "0.返回上级菜单" << endl;
         cout << "请输入：";
         int op;
         cin >> op;

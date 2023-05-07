@@ -6,14 +6,16 @@
 
 void TeacherManager::menu() {
     while (true) {
-        cout << "1.查看全部教师" << endl;
-        cout << "2.添加教师" << endl;
-        cout << "3.修改教师" << endl;
-        cout << "4.删除教师" << endl;
-        cout << "5.按工号查询" << endl;
-        cout << "6.按姓名查询" << endl;
-        cout << "7.从文件添加" << endl;
-        cout << "0.返回" << endl;
+        Head(">>管理模块>>教师管理");
+        cout << "     1.查看全部教师" << endl;
+        cout << "     2.添加教师" << endl;
+        cout << "     3.修改教师" << endl;
+        cout << "     4.删除教师" << endl;
+        cout << "     5.按工号查询" << endl;
+        cout << "     6.按姓名查询" << endl;
+        cout << "     7.从文件添加" << endl;
+        cout << "     0.返回上级菜单" << endl;
+        Tail();
         cout << "请输入：";
         int op;
         cin >> op;

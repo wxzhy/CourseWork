@@ -91,6 +91,7 @@ void Link<T>::save(string filename) {
     ofstream file(filename);
     if (file.fail())
         cout << filename <<"Ð´ÈëÊ§°Ü"<<endl;
+        //Result("filename"+"Ð´ÈëÊ§°Ü");
     for (auto &n: link)
         file << n;
     file.close();
@@ -101,6 +102,7 @@ void Link<T>::load(string filename) {
     ifstream file(filename);
     if (file.fail())
         cout << filename << "´ò¿ªÊ§°Ü" << endl;
+        //Display::Result(filename +"´ò¿ªÊ§°Ü");
     T node;
     file >> node;
     while (!file.eof()) {
