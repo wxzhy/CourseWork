@@ -69,6 +69,8 @@ string LoginUtils::teacherLogin() {
     cout << "输入密码：";
     password = Display::PassRead();
     for (auto &s: teachers) {
+        //密码验证看不懂
+        //cout << s.getId();
         if (s.getId() == username && s.checkPassword(password)) {
             TeacherMenu t(username);
             return username;
@@ -131,10 +133,12 @@ string LoginUtils::studentLogin() {
 
 
 void LoginUtils::updatePassword() {
-    cout << "选择身份：" << endl;
-    cout << "1.管理员" << endl;
-    cout << "2.教师" << endl;
-    cout << "3.学生" << endl;
+    Display::Head(">>修改密码", "身份");
+    //cout << "选择身份：" << endl;
+    cout << "     1.管理员" << endl;
+    cout << "     2.教师" << endl;
+    cout << "     3.学生" << endl;
+    Display::Tail();
     cout << "请输入：";
     int op;
     cin >> op;
@@ -179,7 +183,8 @@ void LoginUtils::updatePassword() {
         }
             break;
         default:
-            cout << "登录失败！" << endl;
+            //cout << "登录失败！" << endl;
+            Display::Result("登录失败！");
     }
 
 }

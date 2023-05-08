@@ -9,15 +9,17 @@
 
 void CourseManager::menu() {
     while (true) {
-        cout << "课程管理" << endl;
-        cout << "1.查看全部课程" << endl;
-        cout << "2.添加课程" << endl;
-        cout << "3.删除课程" << endl;
-        cout << "4.修改课程" << endl;
-        cout << "5.按编号查询" << endl;
-        cout << "6.模糊查询" << endl;
-        cout << "7.从文件添加" << endl;
-        cout << "0.退出" << endl;
+        //cout << "课程管理" << endl;
+        Display::Head(">>管理模块>>课程管理");
+        cout << "     1.查看全部课程" << endl;
+        cout << "     2.添加课程" << endl;
+        cout << "     3.删除课程" << endl;
+        cout << "     4.修改课程" << endl;
+        cout << "     5.按编号查询" << endl;
+        cout << "     6.模糊查询" << endl;
+        cout << "     7.从文件添加" << endl;
+        cout << "     0.返回上级菜单" << endl;
+        Display::Tail();
         cout << "请输入：";
 
         int op;
