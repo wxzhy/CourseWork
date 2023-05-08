@@ -45,7 +45,6 @@ void StudentManager::menu() {
             case 0:
                 return;
             default:
-                Display::Result();
                 cout << "输入错误！" << endl;
 
         }
@@ -59,7 +58,6 @@ void StudentManager::displayAll() {
 
 void StudentManager::print(vector<Student> &s) {
     if (s.empty()) {
-        Display::Result();
         cout << "未找到" << endl;
         return;
     }
@@ -90,12 +88,10 @@ void StudentManager::add() {
     cout << "输入学号：";
     cin >> str;
     if (student_link.ifExist(str)) {
-        Display::Result();
         cout << "该学号已存在" << endl;
         return;
     }
     stu.setId(str);
-    stu.setPassword(str);
     cout << "输入姓名：";
     cin >> str;
     stu.setName(str);
@@ -156,7 +152,7 @@ void StudentManager::edit() {
             cout << "输入专业：";
             string str;
             cin >> str;
-            students[num].setProf(str);
+            students[num].setName(str);
             break;
         }
         case 4: {
@@ -167,7 +163,6 @@ void StudentManager::edit() {
             break;
         }
         default:
-            Display::Result();
             cout << "输入错误！" << endl;
     }
 
@@ -179,21 +174,17 @@ void StudentManager::del() {
     cin >> id;
     int num = student_link.getNumById(id);
     if (num == -1) {
-        Display::Result();
         cout << "未找到" << endl;
         return;
     }
-    //cout << "原信息：";
-    Display::Message("原信息");
+    cout << "原信息：";
     print(students[num]);
     cout << "确认删除（Yes/No）：";
     string str;
     cin >> str;
     if (str == "Yes") {
         student_link.del(students[num].getId());
-        //会报错，待查
-        //score_link.deleteByStudentId(students[num].getId());
-        Display::Result();
+        score_link.deleteByStudentId(students[num].getId());
         cout << "删除成功" << endl;
     }
 

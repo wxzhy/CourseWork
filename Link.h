@@ -91,7 +91,6 @@ void Link<T>::save(string filename) {
     ofstream file(filename);
     if (file.fail())
         cout << filename <<"Ð´ÈëÊ§°Ü"<<endl;
-        //Result("filename"+"Ð´ÈëÊ§°Ü");
     for (auto &n: link)
         file << n;
     file.close();
