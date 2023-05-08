@@ -28,6 +28,7 @@ public:
 
     static void Result(string s);//执行结果
 
+
     static void Message();//信息提示分割线
 
     static void Message(string s);//信息提示
