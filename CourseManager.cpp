@@ -113,22 +113,25 @@ void CourseManager::print(vector<Course> c) {
         cout << "未找到" << endl;
         return;
     }
-
     cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
     cout << "| " << setw(10) << "课程编号" << " | " << setw(15) << "课程名称" << " | "
          << setw(15) << "授课教师" << " | " << setw(8) << "当前人数" << " | "
          << setw(8) << "最大人数" << " |" << endl;
     cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
-
+    int n = 0;
     for (auto &i: c) {
         cout << "| " << left << setw(10) << i.getId() << " | " << left << setw(15) << i.getName() << " | " << left
              << setw(15)
              << teacher_link.getNameById(i.getTeacherId()) << " | " << right << setw(8) << i.getCurrent() << " | "
              << right << setw(8) << i.getMax() << " |" << endl;
+        if ((++n) % 20 == 0) {
+            system("pause>nul");
+        }
     }
 
     cout << "+------------+-----------------+-----------------+----------+----------+" << endl;
     cout << "共有" << c.size() << "条结果" << endl;
+    system("pause>nul");
 }
 
 

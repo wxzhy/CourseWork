@@ -80,7 +80,7 @@ void ScoreManager::print(vector<Score> s) {
         n++;
         sum += s.getValue();
         if (n % 20 == 0)
-            system("pause");
+            system("pause>nul");
     }
 
     // 打印表尾
@@ -88,6 +88,7 @@ void ScoreManager::print(vector<Score> s) {
     cout << "共有" << n << "条记录" << endl;
     sum /= n;
     cout << "总平均分" << setprecision(3) << sum << endl;
+    system("pause>nul");
 }
 
 void ScoreManager::del() {

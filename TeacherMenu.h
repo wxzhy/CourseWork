@@ -24,6 +24,7 @@ public:
     void getCourses();
 
     void courseMenu(int courseNum);//¿Î³Ì²Ëµ¥
+
     void addCourse();
 
     void addScore();

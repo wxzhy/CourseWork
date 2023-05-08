@@ -162,10 +162,11 @@ void TeacherMenu::showScore(int courseNum) {
 
         n++;
         if (n % 20 == 0)
-            system("pause");
+            system("pause>nul");
     }
     cout << "+------------+------------+-----------------+-------+" << endl;
     cout << "共有" << n << "条结果" << endl;
+    system("pause>nul");
 
 }
 

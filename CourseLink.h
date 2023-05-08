@@ -13,17 +13,17 @@ class CourseLink : public Link<Course> {
 public:
     CourseLink() {}
 
-    void update(string id, string teacherId, string name, string desc);
+    void update(string id, string teacherId, string name, string desc);//修改
 
-    void add(string id, string teacherId, string name, int num);
+    void add(string id, string teacherId, string name, int num);//添加
 
-    vector<int> getNumByTeacherId(string id);
+    vector<int> getNumByTeacherId(string id);//按教师工号查询
 
-    string getTeacherId(string id);
+    string getTeacherId(string id);//获得教师id
 
-    void addCurrent(string id);
+    void addCurrent(string id);//选课
 
-    void sortById();
+    void sortById();//按编号排序
 };
 
 

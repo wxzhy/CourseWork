@@ -15,12 +15,14 @@
 #include "ScoreLink.h"
 
 class Database {
-public:
+public://静态变量，存放向量
     static CourseLink course_link;
     static StudentLink student_link;
     static TeacherLink teacher_link;
     static ScoreLink score_link;
+
     static void save();
+
     static void load();
 };
 

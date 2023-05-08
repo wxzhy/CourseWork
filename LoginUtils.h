@@ -14,11 +14,11 @@ using namespace std;
 //class LoginUtils : public Database, public Display {
 class LoginUtils : public Database {
 public:
-    void login();
+    void login();//登录界面
 
-    string adminLogin();
+    string adminLogin();//管理员登录
 
-    string teacherLogin();
+    string teacherLogin();//
 
     string studentLogin();
 

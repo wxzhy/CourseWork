@@ -47,6 +47,7 @@ int main() {
     u.login();
     db.save();
     cout << "±£´æ³É¹¦£¡" << endl;
+    system("timeout \t 1 >nul");
     return 0;
 
 

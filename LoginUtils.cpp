@@ -28,25 +28,28 @@ void LoginUtils::login() {
         switch (op) {
             case 1: {
                 string result = adminLogin();
-                if (result.length())
+                if (result.length()) {
+                    cout << "µÇÂ¼³É¹¦" << endl;
                     AdminMenu().menu();
-                else
+                } else
                     cout << "ÃÜÂë´íÎó£¡" << endl;
             }
                 break;
             case 2: {
                 string result = teacherLogin();
-                if (result.length())
+                if (result.length()) {
+                    cout << "µÇÂ¼³É¹¦" << endl;
                     TeacherMenu(result).menu();
-                else
+                } else
                     cout << "ÃÜÂë´íÎó£¡" << endl;
             }
                 break;
             case 3: {
                 string result = studentLogin();
-                if (result.length())
+                if (result.length()) {
+                    cout << "µÇÂ¼³É¹¦" << endl;
                     StudentMenu(result).menu();
-                else
+                } else
                     cout << "ÃÜÂë´íÎó£¡" << endl;
             }
                 break;
@@ -57,7 +60,7 @@ void LoginUtils::login() {
                 return;
             default:
                 //cout << "µÇÂ¼Ê§°Ü£¡" << endl;
-                Display::Result("µÇÂ¼Ê§°Ü£¡");
+                cout << "µÇÂ¼Ê§°Ü£¡" << endl;
         }
     }
 }
@@ -183,8 +186,8 @@ void LoginUtils::updatePassword() {
         }
             break;
         default:
-            //cout << "µÇÂ¼Ê§°Ü£¡" << endl;
-            Display::Result("µÇÂ¼Ê§°Ü£¡");
+            cout << "µÇÂ¼Ê§°Ü£¡" << endl;
+            //Display::Result("µÇÂ¼Ê§°Ü£¡");
     }
 
 }

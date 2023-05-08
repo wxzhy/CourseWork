@@ -15,7 +15,7 @@ using namespace std;
 //class ScoreManager : public Database, public Display {
 class ScoreManager : public Database {
 public:
-    void menu();
+    void menu();//菜单
 
     void addScore();
 
@@ -23,7 +23,7 @@ public:
 
     void delScore();
 
-    void showAll();
+    void showAll();//展示所有
 
     void print(vector<Score> s);
 

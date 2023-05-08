@@ -69,10 +69,11 @@ void TeacherManager::print(vector<Teacher> &s) {
              << " | " << setw(22) << i.getPhone() << " |" << endl;
         n++;
         if (n % 20 == 0)
-            system("pause");
+            system("pause>nul");
     }
     cout << "+--------------+--------------+--------------+------------------------+" << endl;
     cout << "共有" << n << "条结果" << endl;
+    system("pause>nul");
 }
 
 
@@ -215,6 +216,7 @@ void TeacherManager::print(Teacher s) {
     }
     cout << "+--------------+--------------+--------------+------------------------+" << endl;
     cout << "共有" << 1 << "条结果" << endl;
+    system("pause>nul");
 
 }
 

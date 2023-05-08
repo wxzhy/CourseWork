@@ -15,7 +15,7 @@ public:
 
     void add(string id, string name, string sex, string depart, string phone);
 
-    void updatePassword(string id, string password);
+    void updatePassword(string id, string password);//ĞŞ¸ÄÃÜÂë
 
 };
 

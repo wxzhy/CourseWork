@@ -17,23 +17,23 @@ using namespace std;
 //class TeacherManager:public Database,public Display {
 class TeacherManager : public Database {
 public:
-    void menu();
+    void menu();//菜单
 
     void print(Teacher s);
 
-    void print(string id);
+    void print(string id);//打印信息
 
-    void displayAll();
+    void displayAll();//显示所有
 
-    void add();
+    void add();//添加
 
-    void edit();
+    void edit();//修改
 
-    void del();
+    void del();//删除
 
-    void findByName();
+    void findByName();//按姓名查询
 
-    void findById();
+    void findById();//按工号查询
 
     void print(vector<Teacher> &s);
 

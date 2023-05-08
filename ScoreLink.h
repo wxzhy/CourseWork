@@ -11,15 +11,15 @@
 
 class ScoreLink : public Link<Score> {
 public:
-    vector<Score> getScoreByStudentId(string studentId);
+    vector<Score> getScoreByStudentId(string studentId);//按学号查询
 
-    vector<Score> getScoreByCourseId(string courseId);
+    vector<Score> getScoreByCourseId(string courseId);//按课程查询
 
     vector<int> getScoreNumByCourseId(string courseId);
 
     vector<int> getScoreNumByStudentId(string studentId);
 
-    void add(string studentId, string courseId, float value);
+    void add(string studentId, string courseId, float value);//添加
 
     void deleteByStudentId(string studentId);
 

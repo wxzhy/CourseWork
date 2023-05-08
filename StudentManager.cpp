@@ -75,12 +75,13 @@ void StudentManager::print(vector<Student> &s) {
              << setw(10)
              << i.getProf() << " | " << left << setw(6) << i.getGrade() << " |" << endl;
         if (n % 20 == 0) {
-            system("pause");
+            system("pause>nul");
         }
     }
 
     cout << "+------------+------------+------------+--------+" << endl;
     cout << "共有" << n << "条结果" << endl;
+    system("pause>nul");
 }
 
 
@@ -111,6 +112,7 @@ void StudentManager::add() {
     stu.setGrade(grade);
     students.push_back(stu);
     student_link.sortById();
+    cout << "添加成功" << endl;
 
 }
 
@@ -234,6 +236,7 @@ void StudentManager::print(Student s) {
 
     cout << "+------------+------------+------------+--------+" << endl;
     cout << "共有" << 1 << "条结果" << endl;
+    system("pause>nul");
 
 }
 

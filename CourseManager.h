@@ -19,23 +19,23 @@ class CourseManager : public Database {
 public:
     void menu();
 
-    void addCourse();
+    void addCourse();//添加
 
-    void search();
+    void search();//搜索
 
-    void showCourse();
+    void showCourse();//展示课程
 
-    void print(Course c);
+    void print(Course c);//显示
 
     void print(vector<Course> c);
 
-    void deleteCourse();
+    void deleteCourse();//删除
 
-    void editCourse();
+    void editCourse();//修改
 
-    void findById();
+    void findById();//按编号查询
 
-    void addFromFile();
+    void addFromFile();//从文件添加
 };
 
 

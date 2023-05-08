@@ -90,8 +90,8 @@ template<class T>
 void Link<T>::save(string filename) {
     ofstream file(filename);
     if (file.fail())
-        cout << filename <<"写入失败"<<endl;
-        //Result("filename"+"写入失败");
+        cout << filename << "写入失败" << endl;
+    //Result("filename"+"写入失败");
     for (auto &n: link)
         file << n;
     file.close();
@@ -111,8 +111,9 @@ void Link<T>::load(string filename) {
             cout << "创建成功" << endl;
             file.close();
             file.open(filename);
-        } else
-            exit(1);
+        } else {
+            return;
+        }
     }
     T node;
     file >> node;

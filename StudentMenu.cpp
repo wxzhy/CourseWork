@@ -56,7 +56,7 @@ void StudentMenu::getScore() {
             sum += s.getValue();
             i++;
             if (i % 20 == 0)
-                system("pause");
+                system("pause>nul");
         }
     }
     cout << "+-----------------+-------+" << endl;

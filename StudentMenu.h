@@ -17,16 +17,16 @@ class StudentMenu : public Database {
 public:
     StudentMenu(string id) : id(id) {}
 
-    void menu();
+    void menu();//菜单
 
-    void getScore();
+    void getScore();//分数查询
 
     //void selectCourse();
-    void selectCourse();
+    void selectCourse();//选课
 
-    void findCourse();
+    void findCourse();//查找课程
 
-    void searchCourse();
+    void searchCourse();//模糊查找
 };
 
 

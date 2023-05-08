@@ -18,7 +18,7 @@ void Display::start() {
     system("color 2e");
     cout << "==================================" << endl;
     cout << "        教室管理系统V1.0             " << endl << endl;
-    cout << "       Created By GaoTian        " << endl;
+    cout << "              " << endl;
     cout << "==================================" << endl;
 
 }
@@ -70,6 +70,7 @@ void Display::Head(string s) {
 }
 
 void Display::Head(string s1, string s2) {
+    system("timeout /t 1 >nul&&cls&&cls&&color 0e");
     cout << "                                                " << endl;
     boldLine();
     cout << s1 << endl;
