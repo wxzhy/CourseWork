@@ -135,6 +135,7 @@ void TeacherManager::edit() {
             string str;
             cin >> str;
             teachers[num].setName(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 2: {
@@ -142,6 +143,7 @@ void TeacherManager::edit() {
             string str;
             cin >> str;
             teachers[num].setSex(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 3: {
@@ -149,6 +151,7 @@ void TeacherManager::edit() {
             string str;
             cin >> str;
             teachers[num].setName(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 4: {
@@ -156,6 +159,7 @@ void TeacherManager::edit() {
             string str;
             cin >> str;
             teachers[num].setPhone(str);
+            cout << "修改成功" << endl;
             break;
         }
         default:

@@ -183,6 +183,7 @@ void CourseManager::editCourse() {
             string str;
             cin >> str;
             courses[num].setName(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 2: {
@@ -190,6 +191,7 @@ void CourseManager::editCourse() {
             string str;
             cin >> str;
             courses[num].setTeacherId(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 3: {
@@ -197,6 +199,7 @@ void CourseManager::editCourse() {
             int max;
             cin >> max;
             courses[num].setMax(max);
+            cout << "修改成功" << endl;
             break;
         }
         default:

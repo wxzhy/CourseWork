@@ -46,7 +46,6 @@ void ScoreManager::menu() {
                 addFromFile();
                 break;
             default:
-                Display::Result();
                 cout << "ÊäÈë´íÎó£¡" << endl;
         }
     }

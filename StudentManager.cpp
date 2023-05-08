@@ -45,7 +45,6 @@ void StudentManager::menu() {
             case 0:
                 return;
             default:
-                Display::Result();
                 cout << "输入错误！" << endl;
 
         }
@@ -145,6 +144,7 @@ void StudentManager::edit() {
             string str;
             cin >> str;
             students[num].setName(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 2: {
@@ -152,6 +152,7 @@ void StudentManager::edit() {
             string str;
             cin >> str;
             students[num].setSex(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 3: {
@@ -159,6 +160,7 @@ void StudentManager::edit() {
             string str;
             cin >> str;
             students[num].setProf(str);
+            cout << "修改成功" << endl;
             break;
         }
         case 4: {
@@ -166,6 +168,7 @@ void StudentManager::edit() {
             int str;
             cin >> str;
             students[num].setGrade(str);
+            cout << "修改成功" << endl;
             break;
         }
         default:
