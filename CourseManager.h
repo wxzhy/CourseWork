@@ -14,8 +14,8 @@
 
 using namespace std;
 
+
 class CourseManager : public Database {
-    //class CourseManager : public Database, public Display {
 public:
     void menu();
 
