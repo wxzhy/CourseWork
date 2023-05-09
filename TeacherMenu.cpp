@@ -29,6 +29,7 @@ void TeacherMenu::courseMenu(int courseNum) {
     cout << "ÇëÊäÈë£º";
     int op;
     cin >> op;
+    cin.clear();
     switch (op) {
         case 1:
             showScore(courseNum);

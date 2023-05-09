@@ -11,7 +11,7 @@
 
 class CourseLink : public Link<Course> {
 public:
-    CourseLink() {}
+    CourseLink() = default;
 
     void update(string id, string teacherId, string name, string desc);//ÐÞ¸Ä
 

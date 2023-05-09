@@ -11,7 +11,7 @@
 
 class TeacherLink : public Link<Teacher> {
 public:
-    TeacherLink() {}
+    TeacherLink() = default;
 
     void add(string id, string name, string sex, string depart, string phone);
 
