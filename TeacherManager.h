@@ -15,29 +15,19 @@
 using namespace std;
 
 //class TeacherManager:public Database,public Display {
-class TeacherManager : public Database {
+class TeacherManager : public Database {//TeacherManager类的声明
 public:
     void menu();//菜单
-
-    void print(Teacher s);
-
-    void print(string id);//打印信息
-
+    void print(Teacher s);//打印单个教师
+    void print(string id);//按工号信息
     void displayAll();//显示所有
-
     void add();//添加
-
     void edit();//修改
-
     void del();//删除
-
     void findByName();//按姓名查询
-
     void findById();//按工号查询
-
-    void print(vector<Teacher> &s);
-
-    void loadFromFile();
+    void print(vector<Teacher> &s);//打印多个教师信息
+    void loadFromFile();//从文件加载
 };
 
 

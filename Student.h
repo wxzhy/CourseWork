@@ -14,10 +14,9 @@
     float value;
 }score;*/
 
-class Student : public User {
-    string prof;
+class Student : public User {//Student类的声明
+    string prof;//专业
     int grade;//专业，年级
-//    vector<score> s;
 public:
     Student() = default;//构造函数
     Student(string id, string name, string sex, string prof, int grade) : User(id, name, sex), prof(prof),

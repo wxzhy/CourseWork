@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class User {
+class User {//User类的声明
 protected:
     string id, name, password, telephone;//号码，姓名，密码，电话
     string sex;//性别
@@ -23,11 +23,9 @@ public:
     string getName() { return name; }//获得姓名
     void setName(string &name) { this->name = name; }//设置姓名
     string getSex() { return sex; }//获得性别
-    void setSex(string &sex) { this->sex = sex; }
-
+    void setSex(string &sex) { this->sex = sex; }//设置性别
     void setPassword(string &password) { this->password = password; }//设置密码
-    bool checkPassword(string pass);
-
+    bool checkPassword(string pass);//检查密码
 };
 
 

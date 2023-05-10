@@ -15,12 +15,10 @@
 using namespace std;
 
 template<class T>
-class Link {
-
+class Link {//Link类的声明
 public:
     vector<T> link;//向量
-    Link();
-
+    Link();//构造函数
     virtual void add(T node);//添加
     virtual void del(string id);//按ID删除
     vector<T> findByName(string name);//按名称查找
@@ -32,9 +30,8 @@ public:
     vector<string> getIdByName(string name);//根据部分姓名查询id
     virtual void sortById();//根据id排序
     bool ifExist(string id);//id是否重复
-    void erase(T node);
-
-    int getNumById(string id);
+    void erase(T node);//删除某个节点
+    int getNumById(string id);//通过Id获取下标
 };
 
 template<class T>

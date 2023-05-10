@@ -14,27 +14,18 @@
 
 using namespace std;
 
-class CourseManager : public Database {
+class CourseManager : public Database {//CourseManager类的声明
     //class CourseManager : public Database, public Display {
 public:
-    void menu();
-
+    void menu();//显示菜单
     void addCourse();//添加
-
     void search();//搜索
-
     void showCourse();//展示课程
-
     void print(Course c);//显示
-
-    void print(vector<Course> c);
-
+    void print(vector<Course> c);//显示多个信息
     void deleteCourse();//删除
-
     void editCourse();//修改
-
     void findById();//按编号查询
-
     void addFromFile();//从文件添加
 };
 

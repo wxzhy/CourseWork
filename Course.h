@@ -9,9 +9,9 @@
 
 using namespace std;
 
-class Course {
+class Course {//Course类的声明
     string id, teacherId, name;//教师id,名称，简介
-    int current, max;
+    int current, max;//当前人数，最大人数
 public:
     Course() { current = 0; }//构造函数
     Course(string id, string teacherId, string name, int max) : id(id), teacherId(teacherId), name(name), max(max),
@@ -29,7 +29,6 @@ public:
     void setMax(int max) { this->max = max; }//设置最大认识
     friend ofstream &operator<<(ofstream &out, Course &c);//重载“〈〈”
     friend ifstream &operator>>(ifstream &in, Course &c);//重载“〈〈”
-
 };
 
 

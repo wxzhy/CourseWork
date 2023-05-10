@@ -8,7 +8,7 @@
 
 #include "User.h"
 
-class Teacher : public User {
+class Teacher : public User {//Teacher类的声明
     string depart, phone;//部门，手机
 public:
     Teacher() = default;//构造函数
@@ -20,7 +20,6 @@ public:
     string getPhone() { return phone; }//获得电话
     void setPhone(string phone) { this->phone = phone; }//设置电话
     friend ofstream &operator<<(ofstream &out, Teacher &c);
-
     friend ifstream &operator>>(ifstream &in, Teacher &c);
 };
 

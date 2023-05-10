@@ -66,10 +66,7 @@ void TeacherMenu::getCourses() {
 
 }
 
-void TeacherMenu::AddScore() {
 
-
-}
 
 void TeacherMenu::menu() {
     while (true) {
@@ -221,10 +218,6 @@ void TeacherMenu::calculate() {
 
 }
 
-void TeacherMenu::changePassword() {
-    cout << "输入密码：";
-
-}
 
 void TeacherMenu::sortByScore() {
     score_link.sortByValue();

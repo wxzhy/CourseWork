@@ -12,10 +12,9 @@
 using namespace std;
 
 //class AdminMenu : public Database, public Display {
-class AdminMenu : public Database {
-
+class AdminMenu : public Database {//AdminMenu类的声明
 public:
-    void menu();
+    void menu();//管理员菜单
 };
 
 

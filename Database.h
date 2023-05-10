@@ -14,16 +14,14 @@
 #include "TeacherLink.h"
 #include "ScoreLink.h"
 
-class Database {
+class Database {//DatabaseLink类的声明
 public://静态变量，存放向量
-    static CourseLink course_link;
-    static StudentLink student_link;
-    static TeacherLink teacher_link;
-    static ScoreLink score_link;
-
-    static void save();
-
-    static void load();
+    static CourseLink course_link;//课程
+    static StudentLink student_link;//学生
+    static TeacherLink teacher_link;//教师
+    static ScoreLink score_link;//成绩
+    static void save();//保存到文件
+    static void load();//从文件读取
 };
 
 

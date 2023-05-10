@@ -12,17 +12,13 @@
 using namespace std;
 
 //class LoginUtils : public Database, public Display {
-class LoginUtils : public Database {
+class LoginUtils : public Database {//LoginUtils类的声明
 public:
     void login();//登录界面
-
     string adminLogin();//管理员登录
-
-    string teacherLogin();//
-
-    string studentLogin();
-
-    void updatePassword();
+    string teacherLogin();//教师登录
+    string studentLogin();//学生登录
+    void updatePassword();//修改密码
 };
 
 
