@@ -14,19 +14,19 @@ void TeacherMenu::addCourse() {
 }
 
 void TeacherMenu::courseMenu(int courseNum) {
-    Display::Head(">>æ•™å¸ˆæ¨¡å—                 è¯¾ç¨‹åç§°ï¼š" + courses[courseNum].getName());
-    //cout << "è¯¾ç¨‹åç§°ï¼š " << courses[courseNum].getName() << endl;
+    Display::Head(">>½ÌÊ¦Ä£¿é                 ¿Î³ÌÃû³Æ£º" + courses[courseNum].getName());
+    //cout << "¿Î³ÌÃû³Æ£º " << courses[courseNum].getName() << endl;
     studentNums = score_link.getScoreNumByCourseId(courses[courseNum].getId());
-    cout << "     1.æŸ¥çœ‹å­¦ç”Ÿæˆç»©" << endl;
-    cout << "     2.å½•å…¥å­¦ç”Ÿæˆç»©" << endl;
-    cout << "     3.ä¿®æ”¹å­¦ç”Ÿæˆç»©" << endl;
-    cout << "     4.ç»Ÿè®¡ä¿¡æ¯" << endl;
-    cout << "     5.æŒ‰æˆç»©æ’åº" << endl;
-    cout << "     6.æŒ‰å­¦å·æ’åº" << endl;
-    cout << "     7.é‡æ–°é€‰æ‹©è¯¾ç¨‹" << endl;
-    cout << "     0.è¿”å›ä¸Šçº§èœå•" << endl;
+    cout << "     1.²é¿´Ñ§Éú³É¼¨" << endl;
+    cout << "     2.Â¼ÈëÑ§Éú³É¼¨" << endl;
+    cout << "     3.ĞŞ¸ÄÑ§Éú³É¼¨" << endl;
+    cout << "     4.Í³¼ÆĞÅÏ¢" << endl;
+    cout << "     5.°´³É¼¨ÅÅĞò" << endl;
+    cout << "     6.°´Ñ§ºÅÅÅĞò" << endl;
+    cout << "     7.ÖØĞÂÑ¡Ôñ¿Î³Ì" << endl;
+    cout << "     0.·µ»ØÉÏ¼¶²Ëµ¥" << endl;
     Display::Tail();
-    cout << "è¯·è¾“å…¥ï¼š";
+    cout << "ÇëÊäÈë£º";
     int op;
     cin >> op;
     cin.clear();
@@ -71,28 +71,28 @@ void TeacherMenu::getCourses() {
 void TeacherMenu::menu() {
     while (true) {
         if (choiced == 0) {
-            //é‡æ–°é€‰æ‹©æ“ä½œè¯¾ç¨‹
+            //ÖØĞÂÑ¡Ôñ²Ù×÷¿Î³Ì
 
             Display::Message();
-            cout << "å§“åï¼š " << teacher_link.getNameById(id) << endl;
+            cout << "ĞÕÃû£º " << teacher_link.getNameById(id) << endl;
             getCourses();
             if (courseNums.empty()) {
                 Display::Result();
-                cout << "æ— è¯¾ç¨‹ï¼" << endl;
+                cout << "ÎŞ¿Î³Ì£¡" << endl;
                 return;
             } else {
                 int n = 0;
-                //cout << "è¯¾ç¨‹ä¿¡æ¯ï¼š" << endl;
-                Display::Message("è¯¾ç¨‹ä¿¡æ¯");
-                //cout << left << setw(5) << "åºå·" << left << setw(10) << "è¯¾ç¨‹ç¼–å·" << left << setw(15) << "è¯¾ç¨‹åç§°"
+                //cout << "¿Î³ÌĞÅÏ¢£º" << endl;
+                Display::Message("¿Î³ÌĞÅÏ¢");
+                //cout << left << setw(5) << "ĞòºÅ" << left << setw(10) << "¿Î³Ì±àºÅ" << left << setw(15) << "¿Î³ÌÃû³Æ"
                 //     << setw(5)
-                //     << "äººæ•°" << setw(5) << "æœ€å¤§"
+                //     << "ÈËÊı" << setw(5) << "×î´ó"
                 //     << endl;
                 cout << "+-------+------------+-----------------+-----------------+----------+----------+" << endl;
-                cout << "| " << left << setw(5) << "åºå·" << " | " << setw(10) << "è¯¾ç¨‹ç¼–å·" << " | " << setw(15)
-                     << "è¯¾ç¨‹åç§°" << " | "
-                     << setw(15) << "æˆè¯¾æ•™å¸ˆ" << " | " << setw(8) << "å½“å‰äººæ•°" << " | "
-                     << setw(8) << "æœ€å¤§äººæ•°" << " |" << endl;
+                cout << "| " << left << setw(5) << "ĞòºÅ" << " | " << setw(10) << "¿Î³Ì±àºÅ" << " | " << setw(15)
+                     << "¿Î³ÌÃû³Æ" << " | "
+                     << setw(15) << "ÊÚ¿Î½ÌÊ¦" << " | " << setw(8) << "µ±Ç°ÈËÊı" << " | "
+                     << setw(8) << "×î´óÈËÊı" << " |" << endl;
                 cout << "+-------+------------+-----------------+-----------------+----------+----------+" << endl;
                 for (auto &s: courseNums) {
                     //    cout << left << setw(5) << (++n) << left << setw(10) << courses[s].getId() << left << setw(15)
@@ -107,13 +107,13 @@ void TeacherMenu::menu() {
                 }
 
                 cout << "+-------+------------+-----------------+-----------------+----------+----------+" << endl;
-                cout << "å…±æœ‰" << courseNums.size() << "æ¡ç»“æœ" << endl;
+                cout << "¹²ÓĞ" << courseNums.size() << "Ìõ½á¹û" << endl;
 
-                cout << "è¯·é€‰æ‹©è¦æ“ä½œçš„è¯¾ç¨‹åºå·ï¼š";
+                cout << "ÇëÑ¡ÔñÒª²Ù×÷µÄ¿Î³ÌĞòºÅ£º";
                 int choice;
                 cin >> choice;
                 if (choice <= 0 || choice > courseNums.size()) {
-                    //cout << "è¾“å…¥é”™è¯¯ï¼" << endl;
+                    //cout << "ÊäÈë´íÎó£¡" << endl;
                     return;
                 } else {
                     choiced = choice;
@@ -121,10 +121,10 @@ void TeacherMenu::menu() {
                 }
             }
         } else if (choiced == -1) {
-            //é€€å›ä¸Šçº§
+            //ÍË»ØÉÏ¼¶
             break;
         } else {
-            //å·²ç»é€‰æ‹©è¯¾ç¨‹
+            //ÒÑ¾­Ñ¡Ôñ¿Î³Ì
             courseMenu(courseNums[choiced - 1]);
         }
     }
@@ -138,17 +138,17 @@ void TeacherMenu::showCourse() {
 void TeacherMenu::showScore(int courseNum) {
     if (studentNums.empty()) {
         Display::Result();
-        cout << "æœªæ‰¾åˆ°" << endl;
+        cout << "Î´ÕÒµ½" << endl;
         return;
     }
     int n = 0;
     Display::Message();
     cout << "+------------+------------+-----------------+-------+" << endl;
-    cout << "| " << left << setw(10) << "å­¦å·" << " | " << left << setw(10) << "å§“å" << " | " << setw(15) << "è¯¾ç¨‹åç§°"
-         << " | " << left << setw(5) << "æˆç»©" << " |" << endl;
+    cout << "| " << left << setw(10) << "Ñ§ºÅ" << " | " << left << setw(10) << "ĞÕÃû" << " | " << setw(15) << "¿Î³ÌÃû³Æ"
+         << " | " << left << setw(5) << "³É¼¨" << " |" << endl;
     cout << "+------------+------------+-----------------+-------+" << endl;
     for (auto &i: studentNums) {
-        //æ”¹æ­£é”™è¯¯,å¾ªç¯å†…éƒ¨ä¸åº”è¯¥æœ‰studentNums
+        //¸ÄÕı´íÎó,Ñ­»·ÄÚ²¿²»Ó¦¸ÃÓĞstudentNums
         //cout << "| " << left << setw(10) << scores[studentNums[i]].getId() << " | "
         // << left << setw(10) << student_link.getNameById(scores[studentNums[i]].getId()) << " | "
         // << setw(15) << courses[courseNum].getName() << " | "
@@ -163,7 +163,7 @@ void TeacherMenu::showScore(int courseNum) {
             system("pause>nul");
     }
     cout << "+------------+------------+-----------------+-------+" << endl;
-    cout << "å…±æœ‰" << n << "æ¡ç»“æœ" << endl;
+    cout << "¹²ÓĞ" << n << "Ìõ½á¹û" << endl;
     system("pause>nul");
 
 }
@@ -171,11 +171,11 @@ void TeacherMenu::showScore(int courseNum) {
 
 void TeacherMenu::addScore() {
     for (auto &i: studentNums) {
-        //cout << "å­¦å·ï¼š" << scores[studentNums[i]].getId() << "å§“åï¼š"
+        //cout << "Ñ§ºÅ£º" << scores[studentNums[i]].getId() << "ĞÕÃû£º"
         //     << student_link.getNameById(scores[studentNums[i]].getId()) << endl;
-        cout << "å­¦å·ï¼š" << scores[i].getId() << " å§“åï¼š"
+        cout << "Ñ§ºÅ£º" << scores[i].getId() << " ĞÕÃû£º"
              << student_link.getNameById(scores[i].getId()) << endl;
-        cout << "è¾“å…¥æˆç»©ï¼š";
+        cout << "ÊäÈë³É¼¨£º";
         float score;
         cin >> score;
         //scores[studentNums[i]].setValue(score);
@@ -184,23 +184,23 @@ void TeacherMenu::addScore() {
 }
 
 void TeacherMenu::editScore() {
-    cout << "è¾“å…¥å­¦å·ï¼š";
+    cout << "ÊäÈëÑ§ºÅ£º";
     string studentId;
     cin >> studentId;
     for (auto &i: studentNums) {
         if (scores[i].getId() == studentId) {
-            cout << "åŸæˆç»©ï¼š" << endl;
-            cout << "å­¦å·ï¼š" << scores[i].getId() << "å§“åï¼š"
-                 << student_link.getNameById(scores[i].getId()) << "æˆç»©ï¼š" << setprecision(3) << scores[i].getValue()
+            cout << "Ô­³É¼¨£º" << endl;
+            cout << "Ñ§ºÅ£º" << scores[i].getId() << "ĞÕÃû£º"
+                 << student_link.getNameById(scores[i].getId()) << "³É¼¨£º" << setprecision(3) << scores[i].getValue()
                  << endl;
-            cout << "è¾“å…¥æ–°çš„æˆç»©";
+            cout << "ÊäÈëĞÂµÄ³É¼¨";
             float s;
             cin >> s;
             scores[i].setValue(s);
-            cout << "ä¿®æ”¹æˆåŠŸ" << endl;
+            cout << "ĞŞ¸Ä³É¹¦" << endl;
             return;
         }
-        cout << "æœªæ‰¾åˆ°è¯¥å­¦ç”Ÿ" << endl;
+        cout << "Î´ÕÒµ½¸ÃÑ§Éú" << endl;
     }
 }
 
@@ -213,8 +213,8 @@ void TeacherMenu::calculate() {
     }
     total /= studentNums.size();
     Display::Message();
-    cout << "æ€»äººæ•°ï¼š" << studentNums.size() << endl;
-    cout << "å¹³å‡åˆ†ï¼š" << setprecision(3) << total << endl;
+    cout << "×ÜÈËÊı£º" << studentNums.size() << endl;
+    cout << "Æ½¾ù·Ö£º" << setprecision(3) << total << endl;
 
 }
 
@@ -222,13 +222,13 @@ void TeacherMenu::calculate() {
 void TeacherMenu::sortByScore() {
     score_link.sortByValue();
     Display::Result();
-    cout << "å·²æ’åº" << endl;
+    cout << "ÒÑÅÅĞò" << endl;
 
 }
 
 void TeacherMenu::sortById() {
     score_link.sortByStudentId();
     Display::Result();
-    cout << "å·²æ’åº" << endl;
+    cout << "ÒÑÅÅĞò" << endl;
 
 }
